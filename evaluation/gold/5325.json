@@ -1,0 +1,50 @@
+{
+  "case_number": "I ACa 671/12",
+  "is_road_accident": true,
+  "claimants": [
+    {
+      "role": "poszkodowany",
+      "relation": null,
+      "sex": "K",
+      "age_at_accident": null,
+      "victim_died": false,
+      "injuries": [
+        "złamanie trzonu kręgu L5",
+        "stłuczenie głowy w okolicy czołowej",
+        "przewlekły zespół bólowy kręgosłupa lędźwiowego"
+      ],
+      "permanent_damage_percent": 15,
+      "contributory_negligence_percent": null,
+      "awards": [
+        {
+          "type": "zadośćuczynienie",
+          "amount_claimed": 500000,
+          "amount_appropriate": 50000,
+          "amount_paid_earlier": 30000,
+          "amount_awarded": 20000,
+          "is_monthly": false,
+          "evidence": "bardziej adekwatną sumą zadośćuczynienia jest kwota 50.000 zł ... podwyższył o 20.000 zł, uwzględniając okoliczność, że pozwany zakład ubezpieczeń wypłacił już powódce kwotę 30.000 zł"
+        },
+        {
+          "type": "odszkodowanie",
+          "amount_claimed": 119777.03,
+          "amount_appropriate": null,
+          "amount_paid_earlier": null,
+          "amount_awarded": 18293.65,
+          "is_monthly": false,
+          "evidence": "zasądził od pozwanych na rzecz powódki ... kwotę 18.293,65 zł"
+        },
+        {
+          "type": "renta",
+          "amount_claimed": 3000,
+          "amount_appropriate": null,
+          "amount_paid_earlier": null,
+          "amount_awarded": 220,
+          "is_monthly": true,
+          "evidence": "rentę w wysokości 220 zł ... płatną miesięcznie"
+        }
+      ]
+    }
+  ],
+  "notes": "Passenger; the drunk driver crossed into the oncoming lane (2002). The first instance considered the 30 000 paid sufficient (2 000 zł per 1% uszczerbku); the appeal raised the total to 50 000. Odszkodowanie 18 293.65 = medical costs + 2 years of lost earnings (minimum wage). Psychiatric and dental claims were dismissed (no causal link)."
+}

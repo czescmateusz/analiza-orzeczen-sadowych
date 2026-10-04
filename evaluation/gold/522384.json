@@ -1,0 +1,25 @@
+{
+  "case_number": "I C 515/23",
+  "is_road_accident": true,
+  "claimants": [
+    {
+      "role": "poszkodowany", "relation": null, "sex": "M", "age_at_accident": null, "victim_died": false,
+      "injuries": [
+        "wieloodłamowe złamanie trzonu lewego obojczyka z przemieszczeniem (leczone operacyjnie płytą)",
+        "uszkodzenie nerwu łokciowego lewego niewielkiego stopnia",
+        "uraz nadgarstka lewego",
+        "ograniczenie rotacji zewnętrznej barku lewego"
+      ],
+      "permanent_damage_percent": 15, "contributory_negligence_percent": null,
+      "awards": [
+        {"type": "zadośćuczynienie", "amount_claimed": 60000, "amount_appropriate": 76300, "amount_paid_earlier": 16300, "amount_awarded": 60000, "is_monthly": false,
+         "evidence": "uzasadnione jest przyznanie powodowi zadośćuczynienia za doznaną krzywdę w łącznej kwocie 76 300 złotych (16 300 zł + 60 000 zł)"},
+        {"type": "odszkodowanie", "amount_claimed": 2558.06, "amount_appropriate": 7052.6, "amount_paid_earlier": 5672.24, "amount_awarded": 1380.36, "is_monthly": false,
+         "evidence": "358 h x 19,70 zł = 7 052,60 zł – 5 672,24 zł = 1 380,36 zł"},
+        {"type": "odszkodowanie", "amount_claimed": 8742.06, "amount_appropriate": 8658.95, "amount_paid_earlier": null, "amount_awarded": 8658.95, "is_monthly": false,
+         "evidence": "kwotę 8 658,95 złotych tytułem zwrotu utraconego dochodu"}
+      ]
+    }
+  ],
+  "notes": "Professional driver injured in a 2022 head-on crash caused by an overtaking car. Total 70 039.31 = 60 000 zadośćuczynienie + 1 380.36 care (at 19.70 zł/h, not the claimed 24.35) + 8 658.95 lost income (Jan–Apr 2023). The insurer had also paid 4 425.78 of lost income for 2022 (a different period)."
+}

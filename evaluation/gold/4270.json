@@ -1,0 +1,28 @@
+{
+  "case_number": "I ACa 1177/12",
+  "is_road_accident": true,
+  "claimants": [
+    {
+      "role": "poszkodowany",
+      "relation": null,
+      "sex": "K",
+      "age_at_accident": null,
+      "victim_died": false,
+      "injuries": [],
+      "permanent_damage_percent": null,
+      "contributory_negligence_percent": null,
+      "awards": [
+        {
+          "type": "zadośćuczynienie",
+          "amount_claimed": 150000,
+          "amount_appropriate": 150000,
+          "amount_paid_earlier": null,
+          "amount_awarded": 150000,
+          "is_monthly": false,
+          "evidence": "Sąd Okręgowy uznał żądaną przez powódkę kwotę zadośćuczynienia za odpowiednią"
+        }
+      ]
+    }
+  ],
+  "notes": "Passenger carried as a courtesy (liability based on fault). Claim 50 000 + extension of 100 000. The appeal was dismissed. The injuries are not described in the reasoning (only that neurosurgery and psychiatry experts were heard)."
+}

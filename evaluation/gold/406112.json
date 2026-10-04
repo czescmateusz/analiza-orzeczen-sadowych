@@ -1,0 +1,22 @@
+{
+  "case_number": "XIV C 1030/17",
+  "is_road_accident": true,
+  "claimants": [
+    {
+      "role": "poszkodowany", "relation": null, "sex": "K", "age_at_accident": null, "victim_died": true,
+      "injuries": [
+        "uraz wielonarządowy: stłuczenie mózgu z obrzękiem i krwiakiem, krwawienie podpajęczynówkowe",
+        "rozległe rany szarpane głowy i twarzy",
+        "stłuczenie płuc",
+        "encefalopatia pourazowa z trwałą zmianą osobowości (zespół psychoorganiczny)",
+        "zespół stresu pourazowego"
+      ],
+      "permanent_damage_percent": null, "contributory_negligence_percent": null,
+      "awards": [
+        {"type": "zadośćuczynienie", "amount_claimed": 150000, "amount_appropriate": 100000, "amount_paid_earlier": 30000, "amount_awarded": 70000, "is_monthly": false,
+         "evidence": "sąd uznał, że kwota 100.000 zł będzie kwotą odpowiednią w rozumieniu art. 446 § 4 k.c. ... zasadnym było zasądzenie ... kwoty 70.000 zł"}
+      ]
+    }
+  ],
+  "notes": "Retrial after the appeal court set aside 80 000 of the 150 000 originally awarded. The claim is ONLY art. 446 § 4 zadośćuczynienie for the death of her 8-year-old daughter (the husband also died; that is a separate case against UFG, also 100 000). The plaintiff was injured in the same crash (incapacitated). 100 000 appropriate − 30 000 paid = 70 000, awarded in the earlier judgment and upheld; this judgment dismisses the remaining 80 000. The claimed 8 102.74 capitalised interest is excluded."
+}

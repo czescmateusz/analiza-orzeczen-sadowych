@@ -1,0 +1,28 @@
+{
+  "case_number": "I C 1550/10",
+  "is_road_accident": true,
+  "claimants": [
+    {
+      "role": "poszkodowany", "relation": null, "sex": "K", "age_at_accident": 37, "victim_died": false,
+      "injuries": [
+        "uraz głowy i kręgosłupa szyjnego z pourazowymi przepuklinami C4-C6",
+        "połowicze uszkodzenie rdzenia kręgowego (zespół Browna-Sequarda) z niedowładem czterokończynowym",
+        "ubytki pola widzenia obu oczu",
+        "neurogenna dysfunkcja pęcherza moczowego",
+        "zespół stresu pourazowego, zaburzenia depresyjno-lękowe"
+      ],
+      "permanent_damage_percent": null, "contributory_negligence_percent": null,
+      "awards": [
+        {"type": "zadośćuczynienie", "amount_claimed": 800000, "amount_appropriate": 831000, "amount_paid_earlier": 13000, "amount_awarded": 800000, "is_monthly": false,
+         "evidence": "odpowiednią sumą zadośćuczynienia ... poza wypłaconą już przez ubezpieczyciela kwotą 13.000zł i kwotą 18.000zł zasądzoną na rzecz powódki od sprawcy wypadku, jest kwota 800.000 zł"},
+        {"type": "renta", "amount_claimed": null, "amount_appropriate": null, "amount_paid_earlier": null, "amount_awarded": 1374655.81, "is_monthly": false,
+         "evidence": "586.655,81zł ... skapitalizowanej renty z powodu utraconych dochodów ... 788.000zł ... skapitalizowanej renty z tytułu zwiększonych potrzeb"},
+        {"type": "renta", "amount_claimed": null, "amount_appropriate": null, "amount_paid_earlier": null, "amount_awarded": 17267.92, "is_monthly": true,
+         "evidence": "rentę z tytułu utraconych dochodów w wysokości po 8.033,92zł miesięcznie, począwszy od 1 stycznia 2019r. ... rentę z tytułu zwiększonych potrzeb w kwocie po 9.234zł miesięcznie"},
+        {"type": "odszkodowanie", "amount_claimed": null, "amount_appropriate": null, "amount_paid_earlier": null, "amount_awarded": 58420.18, "is_monthly": false,
+         "evidence": "kwotę 58.420,18zł ... tytułem odszkodowania"}
+      ]
+    }
+  ],
+  "notes": "Hit by a speeding car in 2005, age 37, a manager earning ~9 000 net. Experts' uszczerbek by specialty: neurology 80, neurosurgery 50, urology 40, rehabilitation 100, surgery 60, psychiatry 7.5; the court gave no single total (null). Zadośćuczynienie: 800 000 awarded 'poza' (in addition to) 13 000 from the insurer and 18 000 nawiązka from the perpetrator, so the appropriate total is 831 000. Lump-sum rents: lost earnings 586 655.81 + increased needs 788 000. Ongoing monthly rents: lost earnings 8 033.92 (from 2019) + needs 9 234 (from 08.2017), summed. Also 58 420.18 odszkodowanie, and the guarantee sum was raised (risk split 60/40)."
+}

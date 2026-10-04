@@ -1,0 +1,93 @@
+{
+  "case_number": "I ACa 277/12",
+  "is_road_accident": true,
+  "claimants": [
+    {
+      "role": "poszkodowany",
+      "relation": null,
+      "sex": "M",
+      "age_at_accident": 8,
+      "victim_died": false,
+      "injuries": [
+        "zwichnięcie stawu mostkowo-obojczykowego lewego (leczone operacyjnie)",
+        "stłuczenie klatki piersiowej",
+        "powierzchowny uraz brzucha",
+        "uraz dolnej części grzbietu i miednicy"
+      ],
+      "permanent_damage_percent": null,
+      "contributory_negligence_percent": null,
+      "awards": [
+        {"type": "zadośćuczynienie", "amount_claimed": null, "amount_appropriate": 100000, "amount_paid_earlier": 5000, "amount_awarded": 95000, "is_monthly": false,
+         "evidence": "odpowiednim zadośćuczynieniem pieniężnym za doznaną krzywdę dla powoda M. M. (1) będzie kwota 100.000 zł"},
+        {"type": "renta", "amount_claimed": null, "amount_appropriate": null, "amount_paid_earlier": null, "amount_awarded": 3220, "is_monthly": false,
+         "evidence": "tytułem skapitalizowanej renty za zwiększone potrzeby – opiekę osób trzecich – kwotę 3.220zł"}
+      ]
+    },
+    {
+      "role": "poszkodowany",
+      "relation": null,
+      "sex": "K",
+      "age_at_accident": 3,
+      "victim_died": false,
+      "injuries": [
+        "wstrząśnienie mózgu z utratą przytomności",
+        "złamanie czaszki i kości twarzoczaszki z otwartą raną głowy",
+        "liczne blizny twarzy i skóry głowy",
+        "nadpobudliwość ruchowa i zaburzenia koncentracji (mikrouszkodzenia CUN)"
+      ],
+      "permanent_damage_percent": 8,
+      "contributory_negligence_percent": null,
+      "awards": [
+        {"type": "zadośćuczynienie", "amount_claimed": null, "amount_appropriate": 120000, "amount_paid_earlier": 16000, "amount_awarded": 104000, "is_monthly": false,
+         "evidence": "dla powódki A. M. będzie kwota 120.000 zł"},
+        {"type": "odszkodowanie", "amount_claimed": 17220, "amount_appropriate": 14400, "amount_paid_earlier": 997.9, "amount_awarded": 13402.1, "is_monthly": false,
+         "evidence": "należy się powódce kwota 13.402,10 zł ( 14.400 – 997,90)"},
+        {"type": "renta", "amount_claimed": null, "amount_appropriate": null, "amount_paid_earlier": null, "amount_awarded": 7240, "is_monthly": false,
+         "evidence": "tytułem skapitalizowanej renty za zwiększone potrzeby – opiekę osób trzecich - kwotę 7.240zł"}
+      ]
+    },
+    {
+      "role": "poszkodowany",
+      "relation": null,
+      "sex": "K",
+      "age_at_accident": 33,
+      "victim_died": false,
+      "injuries": [
+        "wstrząśnienie mózgu",
+        "krwiak powieki oka lewego",
+        "otarcia naskórka twarzy i brzucha",
+        "pourazowe zaburzenia lękowo-depresyjne"
+      ],
+      "permanent_damage_percent": null,
+      "contributory_negligence_percent": null,
+      "awards": [
+        {"type": "zadośćuczynienie", "amount_claimed": null, "amount_appropriate": 80000, "amount_paid_earlier": 7000, "amount_awarded": 73000, "is_monthly": false,
+         "evidence": "dla powódki B. M. będzie kwota 80.000 zł"},
+        {"type": "renta", "amount_claimed": null, "amount_appropriate": null, "amount_paid_earlier": null, "amount_awarded": 8090, "is_monthly": false,
+         "evidence": "tytułem skapitalizowanej renty za zwiększone potrzeby – opiekę osób trzecich – kwotę 8.090zł"}
+      ]
+    },
+    {
+      "role": "poszkodowany",
+      "relation": null,
+      "sex": "M",
+      "age_at_accident": 9,
+      "victim_died": false,
+      "injuries": [
+        "wstrząśnienie mózgu z utratą przytomności",
+        "stłuczenie dolnej części grzbietu i miednicy",
+        "liczne powierzchowne otarcia skóry",
+        "stłuczenie jamy brzusznej"
+      ],
+      "permanent_damage_percent": null,
+      "contributory_negligence_percent": null,
+      "awards": [
+        {"type": "zadośćuczynienie", "amount_claimed": null, "amount_appropriate": 80000, "amount_paid_earlier": 10000, "amount_awarded": 70000, "is_monthly": false,
+         "evidence": "dla powoda J. J. będzie kwota 80.000 zł"},
+        {"type": "renta", "amount_claimed": null, "amount_appropriate": null, "amount_paid_earlier": null, "amount_awarded": 1180, "is_monthly": false,
+         "evidence": "tytułem skapitalizowanej renty za zwiększone potrzeby – opiekę osób trzecich – kwotę 1.180zł"}
+      ]
+    }
+  ],
+  "notes": "Four passengers (two children of B. M., B. M. herself, and J. J., 9) hit by a lorry trailer in 2008. The claimed amounts are not stated in the text. The appeal was dismissed. Relatively generous awards for moderate injuries (e.g. 80 000 for concussion + PTSD-like symptoms)."
+}

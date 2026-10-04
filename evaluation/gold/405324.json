@@ -1,0 +1,31 @@
+{
+  "case_number": "I Ca 578/19",
+  "is_road_accident": true,
+  "claimants": [
+    {
+      "role": "poszkodowany",
+      "relation": null,
+      "sex": "K",
+      "age_at_accident": null,
+      "victim_died": false,
+      "injuries": [
+        "uraz osiowy kręgosłupa z izolowanym złamaniem kompresyjnym trzonu kręgu Th12",
+        "przewlekły zespół bólowy kręgosłupa"
+      ],
+      "permanent_damage_percent": 5,
+      "contributory_negligence_percent": null,
+      "awards": [
+        {
+          "type": "inne",
+          "amount_claimed": 1000,
+          "amount_appropriate": 1000,
+          "amount_paid_earlier": null,
+          "amount_awarded": 1000,
+          "is_monthly": false,
+          "evidence": "świadczenie w wysokości 1.000 zł przy uwzględnieniu sumy ubezpieczenia na poziomie kwoty 20.000 zł"
+        }
+      ]
+    }
+  ],
+  "notes": "Bus passenger thrown to the floor at a speed bump. A claim under her OWN NNW accident policy (art. 805 k.c.: 1% of 20 000 per 1% uszczerbku = 1 000), not tort compensation; type 'inne'. Exclude from zadośćuczynienie statistics. The claim was reduced from 1 200 to 1 000 after the expert opinion. The appeal was dismissed."
+}

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Przeglądarka orzeczeń</title>
+  <meta name="description" content="Przeszukuj orzeczenia o wypadkach drogowych i zobacz, co automatyczny parser odczytał z każdego z nich – wraz ze zdaniami źródłowymi.">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="przegladarka.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <nav class="topnav" aria-label="Sekcje aplikacji">
+        <a href="index.html">Porównaj ofertę</a>
+        <a href="przegladarka.html" aria-current="page">Przeglądarka orzeczeń</a>
+        <a href="metodologia.html">Metodologia</a>
+      </nav>
+      <h1>Przeglądarka orzeczeń</h1>
+      <p class="lead">Wszystkie orzeczenia o wypadkach drogowych ze szkodą na osobie, z tym, co odczytał z nich automatyczny
+        parser: kwoty, obrażenia, okoliczności i stwierdzenia sądu – zawsze ze zdaniem, z którego pochodzi każda liczba.</p>
+      <p class="beta">Dane odczytano regułami, bez udziału człowieka. Część kwot jest błędna
+        (<a href="metodologia.html#odczyt">jak odczytano dane</a>). Przeglądarka pokazuje, jak działał parser, także tam, gdzie się pomylił.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <form id="filters" class="card filters" autocomplete="off" role="search">
+      <label class="field wide"><span>Szukaj w zdaniach źródłowych</span>
+        <input id="q" type="search" placeholder="np. pomocy osób trzecich, rażąco zaniżona"></label>
+      <label class="field"><span>Sygnatura lub sąd</span>
+        <input id="sygn" type="search" placeholder="np. I C 1325/09, Wrocław"></label>
+      <label class="field"><span>Rola</span>
+        <select id="role"><option value="">wszyscy</option><option value="p">poszkodowani</option><option value="b">osoby bliskie zmarłego</option></select></label>
+      <label class="field"><span>Obrażenia</span><select id="cat"><option value="">dowolne</option></select></label>
+      <label class="field"><span>Rok od</span><input id="from" type="number" min="1990" max="2030" inputmode="numeric"></label>
+      <label class="field"><span>Rok do</span><input id="to" type="number" min="1990" max="2030" inputmode="numeric"></label>
+      <label class="field"><span>Decyzja parsera</span>
+        <select id="road"><option value="">wszystkie</option><option value="1">wypadek drogowy</option><option value="0">odrzucone (nie wypadek drogowy)</option></select></label>
+      <label class="check"><input id="toolow" type="checkbox"> tylko z oceną sądu „wypłata zaniżona”</label>
+      <label class="check"><input id="amount" type="checkbox"> tylko z odczytaną kwotą zadośćuczynienia</label>
+    </form>
+
+    <div id="status" class="notes" aria-live="polite">Wczytywanie…</div>
+    <div id="list"></div>
+    <section id="detail" hidden aria-live="polite"></section>
+  </main>
+
+  <footer class="wrap footer">
+    <p>Źródło: <a href="https://www.saos.org.pl">SAOS</a>. Orzeczenia są zanonimizowane przez sądy; nie dodajemy żadnych danych
+      identyfikujących. To nie jest porada prawna. <a href="metodologia.html">Metodologia</a>. <a href="https://github.com/czescmateusz/analiza-orzeczen-sadowych">Kod źródłowy i dane: GitHub</a>.</p>
+  </footer>
+</body>
+</html>

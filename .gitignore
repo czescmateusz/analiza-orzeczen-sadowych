@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Local data (SQLite database, downloads); app/data/ (the app's exported data) is versioned
+/data/
+
+# Claude Code personal settings
+.claude/settings.local.json

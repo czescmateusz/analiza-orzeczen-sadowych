@@ -1,0 +1,6 @@
+{
+  "case_number": "I ACa 667/10",
+  "is_road_accident": false,
+  "claimants": [],
+  "notes": "NOT a personal-injury case: an insurance-brokers' chamber sued a direct motor insurer for unfair competition (adverts mocking agents). The rules-v2 classifier flagged it as road accident + injury because the text mentions OC posiadaczy pojazdów mechanicznych, wypadki komunikacyjne and zadośćuczynienie-like terms. A useful negative example."
+}

@@ -1,0 +1,21 @@
+{
+  "case_number": "III Ca 185/22",
+  "is_road_accident": true,
+  "claimants": [
+    {
+      "role": "poszkodowany", "relation": null, "sex": "M", "age_at_accident": null, "victim_died": false,
+      "injuries": [
+        "rana tłuczona czoła wygojona szpecącą blizną ok. 5 cm",
+        "uraz odcinka szyjnego kręgosłupa",
+        "stłuczenie lewego stawu łokciowego",
+        "uraz prawego stawu kolanowego z raną tłuczoną"
+      ],
+      "permanent_damage_percent": 5, "contributory_negligence_percent": null,
+      "awards": [
+        {"type": "zadośćuczynienie", "amount_claimed": 19150, "amount_appropriate": 20000, "amount_paid_earlier": 850, "amount_awarded": 19150, "is_monthly": false,
+         "evidence": "19150 zł tytułem zadośćuczynienia za skutki wypadku drogowego, ponad wypłacone w toku postępowania likwidacyjnego 850 zł"}
+      ]
+    }
+  ],
+  "notes": "Driver hit by another car in 2018. The claim (19 150 over the 850 paid) was awarded in full by the first instance; the appeal was dismissed. Appropriate total implied: 20 000. 5% is long-term (not permanent) uszczerbek for the forehead scar; the insurer itself conceded 10 000 on appeal."
+}

@@ -1,0 +1,27 @@
+{
+  "case_number": "I C 125/22",
+  "is_road_accident": true,
+  "claimants": [
+    {
+      "role": "osoba_najblizsza", "relation": "matka zmarłego", "sex": "K", "age_at_accident": null, "victim_died": true,
+      "injuries": [], "permanent_damage_percent": null, "contributory_negligence_percent": null,
+      "awards": [
+        {"type": "zadośćuczynienie", "amount_claimed": 87700, "amount_appropriate": 80000, "amount_paid_earlier": 32300, "amount_awarded": 47700, "is_monthly": false,
+         "evidence": "odpowiednimi kwotami zadośćuczynienia dla M. i Z. K. są kwoty po 80.000,00 zł"},
+        {"type": "odszkodowanie", "amount_claimed": 20000, "amount_appropriate": null, "amount_paid_earlier": null, "amount_awarded": 0, "is_monthly": false,
+         "evidence": "jako niezasadne należało uznać żądanie powodów w zakresie zasądzenia na ich rzecz jakichkolwiek kwot z tytułu odszkodowania"}
+      ]
+    },
+    {
+      "role": "osoba_najblizsza", "relation": "ojciec zmarłego", "sex": "M", "age_at_accident": null, "victim_died": true,
+      "injuries": [], "permanent_damage_percent": null, "contributory_negligence_percent": null,
+      "awards": [
+        {"type": "zadośćuczynienie", "amount_claimed": 89800, "amount_appropriate": 80000, "amount_paid_earlier": 30200, "amount_awarded": 49800, "is_monthly": false,
+         "evidence": "odpowiednimi kwotami zadośćuczynienia dla M. i Z. K. są kwoty po 80.000,00 zł"},
+        {"type": "odszkodowanie", "amount_claimed": 20000, "amount_appropriate": null, "amount_paid_earlier": null, "amount_awarded": 0, "is_monthly": false,
+         "evidence": "jako niezasadne należało uznać żądanie powodów w zakresie zasądzenia na ich rzecz jakichkolwiek kwot z tytułu odszkodowania"}
+      ]
+    }
+  ],
+  "notes": "26-year-old son killed as a pedestrian on the pavement (2021) while helping a woman who had fallen into a ditch. The mother witnessed it (no injury claim of her own). Art. 446 § 4: 80 000 each minus insurer payments. Art. 446 § 3 odszkodowanie (20 000 each) dismissed."
+}

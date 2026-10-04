@@ -1,0 +1,44 @@
+{
+  "case_number": "VI ACa 144/12",
+  "is_road_accident": true,
+  "claimants": [
+    {
+      "role": "osoba_najblizsza",
+      "relation": "żona zmarłego",
+      "sex": "K",
+      "age_at_accident": null,
+      "victim_died": true,
+      "injuries": [
+        "przewlekłe zaburzenia depresyjno-lękowe (głęboka depresja)",
+        "obumarcie płodu w 37-38 tygodniu ciąży (pośredni skutek stresu)"
+      ],
+      "permanent_damage_percent": null,
+      "contributory_negligence_percent": null,
+      "awards": [
+        {"type": "zadośćuczynienie", "amount_claimed": 100000, "amount_appropriate": 80000, "amount_paid_earlier": null, "amount_awarded": 80000, "is_monthly": false,
+         "evidence": "zasądził od pozwanego na rzecz powódki kwotę 80 000 zł tytułem zadośćuczynienia"},
+        {"type": "odszkodowanie", "amount_claimed": 190000, "amount_appropriate": 125000, "amount_paid_earlier": 15000, "amount_awarded": 110000, "is_monthly": false,
+         "evidence": "kwota łączna 125 000 zł przyznana powódce ... tytułem odszkodowania jest jak najbardziej adekwatna"}
+      ]
+    },
+    {
+      "role": "osoba_najblizsza",
+      "relation": "syn zmarłego",
+      "sex": "M",
+      "age_at_accident": 2,
+      "victim_died": true,
+      "injuries": [],
+      "permanent_damage_percent": null,
+      "contributory_negligence_percent": null,
+      "awards": [
+        {"type": "zadośćuczynienie", "amount_claimed": 100000, "amount_appropriate": 90000, "amount_paid_earlier": null, "amount_awarded": 90000, "is_monthly": false,
+         "evidence": "kwotą kompensującą krzywdę małoletniego powoda winna być kwota 90.000 zł"},
+        {"type": "odszkodowanie", "amount_claimed": 180000, "amount_appropriate": 140000, "amount_paid_earlier": 20000, "amount_awarded": 120000, "is_monthly": false,
+         "evidence": "140 000 zł przyznana powodowi tytułem odszkodowania"},
+        {"type": "renta", "amount_claimed": 2500, "amount_appropriate": null, "amount_paid_earlier": null, "amount_awarded": 1300, "is_monthly": true,
+         "evidence": "kwotę 1300 zł miesięcznie tytułem renty, począwszy od 28 X 2011 r."}
+      ]
+    }
+  ],
+  "notes": "The husband/father (~30) died in 2005. Zadośćuczynienie under art. 448 in connection with art. 24 k.c. (death before 3.08.2008); for the widow, the first instance used art. 445 (depression leading to the loss of her unborn child), and the appeal criticised that basis but kept the amount. Odszkodowanie under 446 § 3 (the deceased's high earning prospects). Rent under 446 § 2 = 2 072 per capita − 762 survivor's pension. The appeal was dismissed."
+}

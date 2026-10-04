@@ -1,0 +1,33 @@
+{
+  "case_number": "I ACa 65/12",
+  "is_road_accident": true,
+  "claimants": [
+    {
+      "role": "poszkodowany",
+      "relation": null,
+      "sex": "K",
+      "age_at_accident": null,
+      "victim_died": false,
+      "injuries": [
+        "złamanie trzonu kręgu Th12 z deformacją",
+        "skręcenie kręgosłupa szyjnego",
+        "zespół bólowy przykręgosłupowy",
+        "zaburzenia adaptacyjne typu depresyjnego"
+      ],
+      "permanent_damage_percent": 10,
+      "contributory_negligence_percent": null,
+      "awards": [
+        {
+          "type": "zadośćuczynienie",
+          "amount_claimed": null,
+          "amount_appropriate": 30000,
+          "amount_paid_earlier": 6000,
+          "amount_awarded": 24000,
+          "is_monthly": false,
+          "evidence": "kwota 30.000,00 zł tytułem zadośćuczynienia spełni swoje podstawowe funkcje"
+        }
+      ]
+    }
+  ],
+  "notes": "Rear-end collision in 2004. First instance: 20 000 appropriate, 6 000 paid, 14 000 awarded; the appeal added 10 000 (30 000 appropriate, 24 000 awarded in total). The claim amount in court is unclear (the appeal sought a further 50 000 / 40 000). The appeal court refused to add the 10% neurological uszczerbek to the orthopaedic one (same organs)."
+}

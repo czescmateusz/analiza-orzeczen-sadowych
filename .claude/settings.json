@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(.venv/Scripts/python -m pytest:*)",
+      "Bash(.venv/Scripts/orzeczenia stats:*)",
+      "Bash(.venv/Scripts/orzeczenia classify:*)",
+      "Bash(.venv/Scripts/orzeczenia reparse:*)",
+      "WebFetch(domain:www.saos.org.pl)"
+    ]
+  }
+}

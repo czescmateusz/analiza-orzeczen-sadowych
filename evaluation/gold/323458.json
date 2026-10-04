@@ -1,0 +1,27 @@
+{
+  "case_number": "I Ca 517/17",
+  "is_road_accident": true,
+  "claimants": [
+    {
+      "role": "poszkodowany", "relation": null, "sex": "K", "age_at_accident": 18, "victim_died": false,
+      "injuries": [
+        "uraz głowy z rozległą raną oskalpowaną i pourazowym obrzękiem mózgu",
+        "złamanie otwarte kości nosa z przemieszczeniem",
+        "złamanie wieloodłamowe nasady dalszej kości promieniowej prawej",
+        "złamanie trzonów obu kości udowych",
+        "uraz oka lewego z pogorszeniem widzenia",
+        "obustronne osłabienie słuchu",
+        "rozległe blizny czoła i kończyn",
+        "zaburzenia adaptacyjne"
+      ],
+      "permanent_damage_percent": 83.5, "contributory_negligence_percent": 30,
+      "awards": [
+        {"type": "zadośćuczynienie", "amount_claimed": 98400, "amount_appropriate": 200000, "amount_paid_earlier": 68600, "amount_awarded": 71400, "is_monthly": false,
+         "evidence": "kryterium „odpowiedniości” w zakresie zadośćuczynienia spełnia suma 200 000 złotych ... po uwzględnieniu przyczynienia daje kwotę 140 000, którą należało pomniejszyć o wypłacone 68 600 złotych"},
+        {"type": "odszkodowanie", "amount_claimed": 5551, "amount_appropriate": 7488, "amount_paid_earlier": 2293.2, "amount_awarded": 2949, "is_monthly": false,
+         "evidence": "kosztów opieki osób trzecich ustalonych na kwotę 7 488 złotych, pomniejszonych o 30% przyczynienie i wypłacone ... 2 293,20 złotych"}
+      ]
+    }
+  ],
+  "notes": "Back-seat passenger, 18 years old (2012 crash; the driver and another passenger died). The rear seatbelts were tucked behind the seat, so 30% przyczynienie was upheld. Uszczerbek: 18 orthopaedic + 10 neurological + 33 scars + 15 ENT + 2.5 eye + 5 psychiatric = 83.5 ('przekraczał 83%'). First instance: 110 000 appropriate; the appeal raised it to 200 000 → ×0.7 = 140 000 − 68 600 = 71 400. Total awarded 74 349 = 71 400 + 2 949 care-cost odszkodowanie (7 488 × 0.7 − 2 293.20)."
+}

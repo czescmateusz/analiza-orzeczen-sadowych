@@ -1,0 +1,23 @@
+{
+  "case_number": "I C 345/21",
+  "is_road_accident": true,
+  "claimants": [
+    {
+      "role": "poszkodowany", "relation": null, "sex": "M", "age_at_accident": 47, "victim_died": false,
+      "injuries": [
+        "ciężki uraz czaszkowo-mózgowy: rozlany uraz mózgu, krwotok podtwardówkowy i podpajęczynówkowy",
+        "złamanie kości sklepienia i podstawy czaszki",
+        "złamanie kości jarzmowej i szczęki",
+        "śpiączka z ostrą niewydolnością oddechową",
+        "złamanie obojczyka",
+        "organiczne zaburzenia osobowości i znaczne deficyty poznawcze"
+      ],
+      "permanent_damage_percent": 100, "contributory_negligence_percent": null,
+      "awards": [
+        {"type": "zadośćuczynienie", "amount_claimed": 500000, "amount_appropriate": 500000, "amount_paid_earlier": 100000, "amount_awarded": 500000, "is_monthly": false,
+         "evidence": "należną powodowi, odpowiednią kwotą zadośćuczynienia ... będzie kwota 500.000,00 zł, którą zasądzono"}
+      ]
+    }
+  ],
+  "notes": "Cyclist hit by a car in 2020. The insurer paid 100 000 zadośćuczynienie (+ care 7 560, treatment 348.11). The court calls 500 000 'the appropriate amount' and awards it in full WITHOUT deducting the 100 000, so total compensation is effectively 600 000 (recorded as stated). Przyczynienie (riding mid-lane, no helmet) rejected. Pre-existing alcohol dependence noted but not decisive."
+}

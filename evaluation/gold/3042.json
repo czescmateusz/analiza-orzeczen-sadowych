@@ -1,0 +1,51 @@
+{
+  "case_number": "I ACa 923/12",
+  "is_road_accident": true,
+  "claimants": [
+    {
+      "role": "poszkodowany",
+      "relation": null,
+      "sex": "M",
+      "age_at_accident": null,
+      "victim_died": false,
+      "injuries": [
+        "złamanie trzonu kości udowej prawej z przemieszczeniem",
+        "złamanie kości udowej lewej z przemieszczeniem",
+        "uszkodzenie tkanek miękkich lewego podudzia",
+        "pourazowa niestabilność obu stawów kolanowych"
+      ],
+      "permanent_damage_percent": null,
+      "contributory_negligence_percent": null,
+      "awards": [
+        {
+          "type": "zadośćuczynienie",
+          "amount_claimed": null,
+          "amount_appropriate": null,
+          "amount_paid_earlier": null,
+          "amount_awarded": null,
+          "is_monthly": false,
+          "evidence": "zasądził ... zadośćuczynienie (kwota nie podana w uzasadnieniu)"
+        },
+        {
+          "type": "renta",
+          "amount_claimed": 30844,
+          "amount_appropriate": 21530.3,
+          "amount_paid_earlier": 13225,
+          "amount_awarded": 8305.3,
+          "is_monthly": false,
+          "evidence": "obniża zasądzoną w punkcie 1b wyroku skapitalizowaną rentę ... z kwoty 30.844 złotych do kwoty 8.305,30"
+        },
+        {
+          "type": "renta",
+          "amount_claimed": null,
+          "amount_appropriate": null,
+          "amount_paid_earlier": null,
+          "amount_awarded": 80,
+          "is_monthly": true,
+          "evidence": "kwocie po 80 zł miesięcznie począwszy od dnia 1 stycznia 2012 r. i na przyszłość"
+        }
+      ]
+    }
+  ],
+  "notes": "Passenger. The zadośćuczynienie and property odszkodowanie were awarded by the first instance and not appealed, but their amounts are not in the text. Capitalised rent: care 19 410.30 + uncontested expenses 2 120 = 21 530.30, minus 13 225 paid = 8 305.30. Monthly rent: 506.60 (12.2010–06.2011), 80 (07–12.2011), and 80 ongoing from 2012; the ongoing 80 is recorded."
+}

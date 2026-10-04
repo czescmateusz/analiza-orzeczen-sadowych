@@ -1,0 +1,33 @@
+{
+  "case_number": "II Ca 926/12",
+  "is_road_accident": true,
+  "claimants": [
+    {
+      "role": "poszkodowany",
+      "relation": null,
+      "sex": "M",
+      "age_at_accident": null,
+      "victim_died": false,
+      "injuries": [
+        "uraz głowy",
+        "uraz kręgosłupa szyjnego",
+        "stłuczenie barku",
+        "pourazowy zespół bólowy szyjny"
+      ],
+      "permanent_damage_percent": null,
+      "contributory_negligence_percent": null,
+      "awards": [
+        {
+          "type": "odszkodowanie",
+          "amount_claimed": 540,
+          "amount_appropriate": 540,
+          "amount_paid_earlier": null,
+          "amount_awarded": 540,
+          "is_monthly": false,
+          "evidence": "zasądza od strony pozwanej ... na rzecz powoda D. R. kwotę 540 zł"
+        }
+      ]
+    }
+  ],
+  "notes": "Motorcyclist. Only the cost of private medical visits was claimed. The first instance dismissed it (duty to use public healthcare); the appeal awarded it in full."
+}

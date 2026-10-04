@@ -1,0 +1,60 @@
+{
+  "case_number": "I ACa 456/12",
+  "is_road_accident": true,
+  "claimants": [
+    {
+      "role": "poszkodowany",
+      "relation": null,
+      "sex": "K",
+      "age_at_accident": null,
+      "victim_died": false,
+      "injuries": [
+        "złamanie trzonu kręgu L1",
+        "złamanie kości łonowej i kulszowej bez przemieszczenia",
+        "uraz głowy",
+        "potłuczenia ogólne"
+      ],
+      "permanent_damage_percent": 35,
+      "contributory_negligence_percent": null,
+      "awards": [
+        {
+          "type": "zadośćuczynienie",
+          "amount_claimed": null,
+          "amount_appropriate": 55000,
+          "amount_paid_earlier": 30000,
+          "amount_awarded": 25000,
+          "is_monthly": false,
+          "evidence": "łączna suma zadośćuczynienia należna powódce winna wynosić 55.000 zł"
+        },
+        {
+          "type": "odszkodowanie",
+          "amount_claimed": 24360,
+          "amount_appropriate": 15500,
+          "amount_paid_earlier": null,
+          "amount_awarded": 15500,
+          "is_monthly": false,
+          "evidence": "co łącznie z kwotami wyżej wskazanymi wynosi 15.500 zł"
+        },
+        {
+          "type": "renta",
+          "amount_claimed": null,
+          "amount_appropriate": null,
+          "amount_paid_earlier": null,
+          "amount_awarded": 16470,
+          "is_monthly": false,
+          "evidence": "15.190 złotych tytułem skapitalizowanej renty ... 1.280 złotych tytułem renty za okres od 1 maja 2010 r. do 30 czerwca 2010 r."
+        },
+        {
+          "type": "renta",
+          "amount_claimed": 640,
+          "amount_appropriate": null,
+          "amount_paid_earlier": null,
+          "amount_awarded": 0,
+          "is_monthly": true,
+          "evidence": "oddala żądanie zasądzenia renty poczynając od lipca 2010 r."
+        }
+      ]
+    }
+  ],
+  "notes": "Cyclist. Uszczerbek: 25% orthopaedic + 10% psychiatric/neurological. The zadośćuczynienie claim amount is not stated. Odszkodowanie = the cost of family care (4 704 + 10 192 + ~600). Rent arrears 15 190 + 1 280 = 16 470 (lump sum); the ongoing rent of 200/month (claimed 640) was dismissed on appeal."
+}

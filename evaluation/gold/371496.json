@@ -1,0 +1,23 @@
+{
+  "case_number": "I C 116/18",
+  "is_road_accident": true,
+  "claimants": [
+    {
+      "role": "osoba_najblizsza", "relation": "matka poszkodowanej", "sex": "K", "age_at_accident": null, "victim_died": false,
+      "injuries": [], "permanent_damage_percent": null, "contributory_negligence_percent": null,
+      "awards": [
+        {"type": "zadośćuczynienie", "amount_claimed": 150000, "amount_appropriate": 100000, "amount_paid_earlier": null, "amount_awarded": 100000, "is_monthly": false,
+         "evidence": "odpowiednią kwotą będzie 100.000 złotych dla każdego z rodziców poszkodowanej"}
+      ]
+    },
+    {
+      "role": "osoba_najblizsza", "relation": "ojciec poszkodowanej", "sex": "M", "age_at_accident": null, "victim_died": false,
+      "injuries": [], "permanent_damage_percent": null, "contributory_negligence_percent": null,
+      "awards": [
+        {"type": "zadośćuczynienie", "amount_claimed": 150000, "amount_appropriate": 100000, "amount_paid_earlier": null, "amount_awarded": 100000, "is_monthly": false,
+         "evidence": "odpowiednią kwotą będzie 100.000 złotych dla każdego z rodziców poszkodowanej"}
+      ]
+    }
+  ],
+  "notes": "Parents' own claim (art. 448 in connection with art. 24 k.c., infringed family bond) for their 5-year-old daughter, who survived a 2010 crash with a severe brain injury in a near-vegetative state. The drunk driver of the other car was at fault; the mother was driving and did not contribute (insurer's 50% przyczynienie rejected). The daughter's own zadośćuczynienie in a separate case was 450 000. The claimed amount is from the pre-trial demand (150 000 each)."
+}

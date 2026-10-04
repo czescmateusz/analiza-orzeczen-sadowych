@@ -1,0 +1,16 @@
+{
+  "case_number": "II Ca 1582/22",
+  "is_road_accident": true,
+  "claimants": [
+    {
+      "role": "osoba_najblizsza", "relation": "siostra zmarłego", "sex": "K", "age_at_accident": null, "victim_died": true,
+      "injuries": ["zaburzenia adaptacyjne o charakterze ostrej reakcji na stres (przemijające)"],
+      "permanent_damage_percent": null, "contributory_negligence_percent": null,
+      "awards": [
+        {"type": "zadośćuczynienie", "amount_claimed": 24000, "amount_appropriate": 24000, "amount_paid_earlier": null, "amount_awarded": 6000, "is_monthly": false,
+         "evidence": "Uznając kwotę wskazaną w pozwie za odpowiednie dla powódki zadośćuczynienie w pełnej wysokości, za kwotę należną ostatecznie powódce ... Sąd odwoławczy uznał kwotę 6.000 zł"}
+      ]
+    }
+  ],
+  "notes": "The brother died as a passenger in 2007 (art. 448 in connection with art. 24 k.c.); he was drunk, rode with a drunk driver, and wore no seatbelt. The first instance applied 40% przyczynienie and awarded 24 000. The appeal kept 24 000 as the full sum but reduced it to 6 000 without stating a % ('not a mathematical calculation'), so contributory_negligence_percent = null; the effective reduction is 75%."
+}

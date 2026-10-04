@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ile warte jest zadośćuczynienie?</title>
+  <meta name="description" content="Porównaj ofertę ubezpieczyciela z kwotami, które sądy uznały za odpowiednie w podobnych sprawach o wypadki drogowe.">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <nav class="topnav" aria-label="Sekcje aplikacji">
+        <a href="index.html" aria-current="page">Porównaj ofertę</a>
+        <a href="przegladarka.html">Przeglądarka orzeczeń</a>
+        <a href="metodologia.html">Metodologia</a>
+      </nav>
+      <p class="eyebrow">Wypadki drogowe · zadośćuczynienie</p>
+      <h1>Czy oferta ubezpieczyciela jest uczciwa?</h1>
+      <p class="lead">Porównaj kwotę zaproponowaną przez ubezpieczyciela z kwotami, które polskie sądy uznały za
+        odpowiednie w podobnych sprawach. Wszystko liczy się w Twojej przeglądarce – nic, co tu wpiszesz, nie jest nigdzie wysyłane.</p>
+      <p class="beta"><strong>Wersja testowa.</strong> Kwoty odczytano z orzeczeń automatycznie i część z nich może być błędna.
+        Zawsze sprawdź orzeczenie źródłowe. To nie jest porada prawna.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <form id="form" class="card" autocomplete="off">
+      <fieldset>
+        <legend>Twoja sytuacja</legend>
+        <p class="hint">Zaznacz jedną albo obie. Jeśli zostałeś/aś ranny/a, a w tym samym wypadku zginęła bliska Ci osoba,
+          zaznacz obie: to dwa odrębne roszczenia (za własne obrażenia – art. 445 k.c., za śmierć osoby bliskiej –
+          art. 446 § 4 k.c.) i sąd ocenia każde z nich osobno.</p>
+        <div class="choice-row">
+          <label class="choice"><input type="checkbox" name="role" value="p" checked> <span>Zostałem/am ranny/a w wypadku</span></label>
+          <label class="choice"><input type="checkbox" name="role" value="b"> <span>W wypadku zginęła bliska mi osoba</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset data-role="p">
+        <legend>Twoje obrażenia</legend>
+        <label class="field">
+          <span>Opisz krótko obrażenia, a podpowiemy kategorie</span>
+          <input id="search" type="search" placeholder="np. złamana noga, uraz kręgosłupa szyjnego">
+        </label>
+        <div id="categories" class="chips" role="group" aria-label="Kategorie obrażeń"></div>
+        <div class="grid-2">
+          <label class="field"><span>Trwały uszczerbek na zdrowiu (%) <em>jeśli znasz</em></span>
+            <input id="uszczerbek" type="number" min="0" max="100" step="1" inputmode="numeric"></label>
+          <label class="field"><span>Wiek w chwili wypadku <em>opcjonalnie</em></span>
+            <input id="age" type="number" min="0" max="110" step="1" inputmode="numeric"></label>
+        </div>
+        <p class="subhead">Co dotyczy Twojej sytuacji?</p>
+        <p class="hint">Sądy przyznawały wyższe kwoty częściej, gdy w uzasadnieniu opisywały te okoliczności.</p>
+        <div id="factors-p" class="checks"></div>
+        <label class="field"><span>Oferta ubezpieczyciela za Twoje obrażenia – kwota zadośćuczynienia zaproponowana lub wypłacona (zł)</span>
+          <input id="offer-p" type="number" min="0" step="100" inputmode="numeric" placeholder="np. 15000"></label>
+      </fieldset>
+
+      <fieldset data-role="b" hidden>
+        <legend>Śmierć bliskiej osoby</legend>
+        <label class="field"><span>Kim była dla Ciebie zmarła osoba?</span>
+          <select id="relation">
+            <option value="">— dowolna relacja —</option>
+            <option value="rodzic">Moje dziecko</option>
+            <option value="malzonek">Mój mąż / żona / partner(ka)</option>
+            <option value="dziecko">Mój rodzic</option>
+            <option value="rodzenstwo">Mój brat / siostra</option>
+            <option value="inny">Inna bliska osoba (np. wnuk, dziadek)</option>
+          </select></label>
+        <label class="field"><span>Twój wiek <em>opcjonalnie</em></span>
+          <input id="age-b" type="number" min="0" max="110" step="1" inputmode="numeric"></label>
+        <p class="subhead">Co dotyczy Twojej sytuacji?</p>
+        <div id="factors-b" class="checks"></div>
+        <label class="field"><span>Oferta ubezpieczyciela za śmierć bliskiej osoby – kwota zadośćuczynienia zaproponowana lub wypłacona (zł)</span>
+          <input id="offer-b" type="number" min="0" step="100" inputmode="numeric" placeholder="np. 50000"></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Zakres orzeczeń</legend>
+        <div class="grid-2">
+          <label class="field"><span>Uwzględnij orzeczenia od roku</span>
+            <input id="since" type="number" min="2004" max="2026" step="1" value="2015" inputmode="numeric"></label>
+          <label class="check field-check"><input id="real" type="checkbox" checked>
+            <span>Przelicz kwoty z orzeczeń na ceny z <span class="base-year">2025</span> r. (inflacja według GUS)</span></label>
+        </div>
+      </fieldset>
+      <button type="submit" class="primary">Porównaj z orzeczeniami</button>
+    </form>
+
+    <section id="results" hidden aria-live="polite"></section>
+  </main>
+
+  <footer class="wrap footer">
+    <p>Źródło: orzeczenia sądów powszechnych z bazy <a href="https://www.saos.org.pl">SAOS</a>, zanonimizowane.
+      Kwoty z orzeczeń przeliczamy domyślnie na ceny z ostatniego pełnego roku według średniorocznych wskaźników cen GUS.
+      Narzędzie ma charakter informacyjny i nie zastępuje porady radcy prawnego ani adwokata.
+      <a href="metodologia.html">Metodologia, model statystyczny i trend w czasie</a>. <a href="https://github.com/czescmateusz/analiza-orzeczen-sadowych">Kod źródłowy i dane: GitHub</a>.</p>
+  </footer>
+  <noscript><p class="wrap">To narzędzie wymaga włączonego JavaScriptu.</p></noscript>
+</body>
+</html>

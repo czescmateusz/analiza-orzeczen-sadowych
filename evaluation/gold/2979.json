@@ -1,0 +1,67 @@
+{
+  "case_number": "I ACa 1483/11",
+  "is_road_accident": true,
+  "claimants": [
+    {
+      "role": "osoba_najblizsza",
+      "relation": "matka zmarłej",
+      "sex": "K",
+      "age_at_accident": null,
+      "victim_died": true,
+      "injuries": ["zaburzenia adaptacyjne i depresyjne", "dystymia"],
+      "permanent_damage_percent": null,
+      "contributory_negligence_percent": null,
+      "awards": [
+        {
+          "type": "zadośćuczynienie",
+          "amount_claimed": 50000,
+          "amount_appropriate": 50000,
+          "amount_paid_earlier": null,
+          "amount_awarded": 50000,
+          "is_monthly": false,
+          "evidence": "z tytułu zadośćuczynienia ... na rzecz G. C. kwotę 50.000 zl"
+        },
+        {
+          "type": "odszkodowanie",
+          "amount_claimed": 18500,
+          "amount_appropriate": null,
+          "amount_paid_earlier": 19600,
+          "amount_awarded": 3500,
+          "is_monthly": false,
+          "evidence": "zwrotu kosztów związanych z postawieniem nagrobka dla zmarłej M. C. w kwocie 3.500 zł"
+        }
+      ]
+    },
+    {
+      "role": "osoba_najblizsza",
+      "relation": "syn zmarłej",
+      "sex": "M",
+      "age_at_accident": null,
+      "victim_died": true,
+      "injuries": [],
+      "permanent_damage_percent": null,
+      "contributory_negligence_percent": null,
+      "awards": [
+        {
+          "type": "zadośćuczynienie",
+          "amount_claimed": 70000,
+          "amount_appropriate": 70000,
+          "amount_paid_earlier": null,
+          "amount_awarded": 70000,
+          "is_monthly": false,
+          "evidence": "z tytułu zadośćuczynienia na rzecz małoletniego K. C. zasądził kwotę 70.000 zl"
+        },
+        {
+          "type": "odszkodowanie",
+          "amount_claimed": 10000,
+          "amount_appropriate": null,
+          "amount_paid_earlier": 21000,
+          "amount_awarded": 0,
+          "is_monthly": false,
+          "evidence": "odszkodowania za znaczne pogorszenie sytuacji życiowej ... nie zasługiwało na uwzględnienie"
+        }
+      ]
+    }
+  ],
+  "notes": "Passenger M. C. died in 2007 (art. 448 k.c. applies, not art. 446 § 4). The mother claimed 15 000 (446 § 3, dismissed) + 3 500 headstone (awarded); her paid_earlier = 14 000 (446 § 3, after the insurer's 30% reduction) + 5 600 headstone. The insurer's 30% przyczynienie (no seatbelt) was rejected by the court for lack of evidence. The appeal was dismissed."
+}

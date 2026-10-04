@@ -1,0 +1,31 @@
+{
+  "case_number": "II Ca 838/12",
+  "is_road_accident": true,
+  "claimants": [
+    {
+      "role": "osoba_najblizsza",
+      "relation": "matka zmarłej",
+      "sex": "K",
+      "age_at_accident": null,
+      "victim_died": true,
+      "injuries": [
+        "zaburzenie adaptacyjne z mieszanymi zaburzeniami zachowania i emocji",
+        "zaburzenie stresowe pourazowe z objawami depresyjnymi"
+      ],
+      "permanent_damage_percent": null,
+      "contributory_negligence_percent": null,
+      "awards": [
+        {
+          "type": "zadośćuczynienie",
+          "amount_claimed": 15000,
+          "amount_appropriate": 15000,
+          "amount_paid_earlier": null,
+          "amount_awarded": 15000,
+          "is_monthly": false,
+          "evidence": "zasądził od pozwanego ... na rzecz powódki M. J. kwotę 15.000 zł ... Uzasadniało to uwzględnienie powództwa w całości."
+        }
+      ]
+    }
+  ],
+  "notes": "Accident in 2000; the 29-year-old daughter died. Zadośćuczynienie under art. 448 in connection with art. 24 k.c. (death before 3.08.2008). The appeal changed only the costs."
+}

@@ -1,0 +1,60 @@
+{
+  "case_number": "I C 178/19",
+  "is_road_accident": true,
+  "claimants": [
+    {
+      "role": "osoba_najblizsza", "relation": "ojciec zmarłego", "sex": "M", "age_at_accident": null, "victim_died": true,
+      "injuries": ["zaburzenia adaptacyjne w trakcie żałoby nasilające wcześniejszy zespół depresyjny"],
+      "permanent_damage_percent": null, "contributory_negligence_percent": null,
+      "awards": [
+        {"type": "zadośćuczynienie", "amount_claimed": 79000, "amount_appropriate": 100000, "amount_paid_earlier": 21000, "amount_awarded": 79000, "is_monthly": false,
+         "evidence": "dochodzone przez nich kwoty (po 100.000,00 zł dla każdego ... 79.000,00 zł żądane w niniejszej sprawie + 21.000,00 zł wypłacone uprzednio"},
+        {"type": "odszkodowanie", "amount_claimed": 100000, "amount_appropriate": 100000, "amount_paid_earlier": null, "amount_awarded": 100000, "is_monthly": false,
+         "evidence": "dochodzona przez niego od pozwanego kwota 100.000,00 zł ww. tytułem, jest mu w pełni należna"}
+      ]
+    },
+    {
+      "role": "osoba_najblizsza", "relation": "matka zmarłego", "sex": "K", "age_at_accident": null, "victim_died": true,
+      "injuries": [], "permanent_damage_percent": null, "contributory_negligence_percent": null,
+      "awards": [
+        {"type": "zadośćuczynienie", "amount_claimed": 79000, "amount_appropriate": 100000, "amount_paid_earlier": 21000, "amount_awarded": 79000, "is_monthly": false,
+         "evidence": "po 100.000,00 zł dla każdego z ww. powodów"},
+        {"type": "odszkodowanie", "amount_claimed": 8792.88, "amount_appropriate": null, "amount_paid_earlier": null, "amount_awarded": 8792.88, "is_monthly": false,
+         "evidence": "zasądza ... solidarnie na rzecz H. M. i W. M. 8.792,88 zł"}
+      ]
+    },
+    {
+      "role": "osoba_najblizsza", "relation": "brat zmarłego", "sex": "M", "age_at_accident": null, "victim_died": true,
+      "injuries": [], "permanent_damage_percent": null, "contributory_negligence_percent": null,
+      "awards": [
+        {"type": "zadośćuczynienie", "amount_claimed": 79000, "amount_appropriate": 89500, "amount_paid_earlier": 10500, "amount_awarded": 79000, "is_monthly": false,
+         "evidence": "zadośćuczynienia w łącznej kwocie 89.500,00 zł (79.000,00 zł dochodzone w niniejszej sprawie + 10.500,00 zł wypłacone uprzednio"}
+      ]
+    },
+    {
+      "role": "osoba_najblizsza", "relation": "babcia zmarłego", "sex": "K", "age_at_accident": null, "victim_died": true,
+      "injuries": [], "permanent_damage_percent": null, "contributory_negligence_percent": null,
+      "awards": [
+        {"type": "zadośćuczynienie", "amount_claimed": 40000, "amount_appropriate": 40000, "amount_paid_earlier": null, "amount_awarded": 40000, "is_monthly": false,
+         "evidence": "żądania wypłaty po 40.000,00 zł na rzecz każdego z ww. powodów ... za uzasadnione w całości"}
+      ]
+    },
+    {
+      "role": "osoba_najblizsza", "relation": "dziadek zmarłego", "sex": "M", "age_at_accident": null, "victim_died": true,
+      "injuries": [], "permanent_damage_percent": null, "contributory_negligence_percent": null,
+      "awards": [
+        {"type": "zadośćuczynienie", "amount_claimed": 40000, "amount_appropriate": 40000, "amount_paid_earlier": null, "amount_awarded": 40000, "is_monthly": false,
+         "evidence": "zasądza ... na rzecz H. M. , jako następczyni prawnej zmarłego powoda W. W. (1) , kwotę 40.000,00 zł"}
+      ]
+    },
+    {
+      "role": "osoba_najblizsza", "relation": "babcia zmarłego", "sex": "K", "age_at_accident": null, "victim_died": true,
+      "injuries": [], "permanent_damage_percent": null, "contributory_negligence_percent": null,
+      "awards": [
+        {"type": "zadośćuczynienie", "amount_claimed": 40000, "amount_appropriate": 40000, "amount_paid_earlier": null, "amount_awarded": 40000, "is_monthly": false,
+         "evidence": "zasądza ... na rzecz U. W. kwotę 40.000,00 zł"}
+      ]
+    }
+  ],
+  "notes": "A 26-year-old motorcyclist was killed in 2015 by a bus turning left. The insurer's 30% przyczynienie was rejected (no evidence), so there was no reduction. Six plaintiffs: parents (100 000 appropriate each, 21 000 paid), brother (89 500, 10 500 paid), three grandparents (40 000 each; the grandfather died during the case and his award goes to his heir H. M.). The father also got 100 000 under art. 446 § 3 (his income collapsed). The joint parental odszkodowanie of 8 792.88 (16 316.72 withdrawn) is recorded under the mother only, to avoid double counting."
+}

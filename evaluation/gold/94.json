@@ -1,0 +1,55 @@
+{
+  "case_number": "I ACa 932/12",
+  "is_road_accident": true,
+  "claimants": [
+    {
+      "role": "poszkodowany",
+      "relation": null,
+      "sex": "M",
+      "age_at_accident": null,
+      "victim_died": false,
+      "injuries": [
+        "rana tłuczona czoła",
+        "złamanie otwarte kości ramiennej lewej",
+        "uszkodzenie mięśnia dwugłowego ramienia lewego",
+        "złamanie nasad dalszych kości obu podudzi",
+        "amputacja lewej kończyny dolnej na wysokości uda",
+        "uszkodzenie nerwów kończyny dolnej prawej i nerwu łokciowego",
+        "wstrząs hipowolemiczny i wychłodzenie",
+        "zaburzenia adaptacyjne"
+      ],
+      "permanent_damage_percent": 100,
+      "contributory_negligence_percent": null,
+      "awards": [
+        {
+          "type": "zadośćuczynienie",
+          "amount_claimed": 540000,
+          "amount_appropriate": 527000,
+          "amount_paid_earlier": 160000,
+          "amount_awarded": 320000,
+          "is_monthly": false,
+          "evidence": "łączna kwota zadośćuczynienia wskazana przez Sąd Okręgowy na kwotę 527000zł nie jest rażąco wygórowana"
+        },
+        {
+          "type": "odszkodowanie",
+          "amount_claimed": 48266.08,
+          "amount_appropriate": 14314.7,
+          "amount_paid_earlier": 3092.23,
+          "amount_awarded": 11222.47,
+          "is_monthly": false,
+          "evidence": "do zapłaty pozostała kwota 11222,47 zł"
+        },
+        {
+          "type": "renta",
+          "amount_claimed": 6450,
+          "amount_appropriate": null,
+          "amount_paid_earlier": null,
+          "amount_awarded": 1930,
+          "is_monthly": true,
+          "evidence": "kwotę 1930 zł ... tytułem renty płatnej do dnia 10-tego każdego miesiąca począwszy od maja 2012r."
+        }
+      ]
+    }
+  ],
+  "notes": "Pedestrian, hit-and-run (the driver left him without help). 527 000 in total = 320 000 awarded + 160 000 paid by the insurer + 27 000 from his own NW policy + 20 000 from the perpetrator. Odszkodowanie: 9 090.66 + 944.04 + 4 280 = 14 314.70, minus 3 092.23 paid = 11 222.47 (private rehabilitation costs rejected on appeal). Rent: the first instance gave 2 000/month (04.2010–04.2012) + 5 020 from 05.2012; the appeal gave only 1 930/month from 05.2012 (claimed 3 000 then 6 450). The ongoing rent is recorded."
+}

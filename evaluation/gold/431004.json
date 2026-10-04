@@ -1,0 +1,24 @@
+{
+  "case_number": "I C 188/17",
+  "is_road_accident": true,
+  "claimants": [
+    {
+      "role": "poszkodowany", "relation": null, "sex": "K", "age_at_accident": 50, "victim_died": false,
+      "injuries": [
+        "przewlekłe uszkodzenie tkanek miękkich kręgosłupa szyjnego (whiplash)",
+        "przewlekły zespół korzeniowy szyjny z niedowładem prawej kończyny górnej",
+        "przyspieszenie zmian zwyrodnieniowych kręgosłupa szyjnego"
+      ],
+      "permanent_damage_percent": 25, "contributory_negligence_percent": null,
+      "awards": [
+        {"type": "zadośćuczynienie", "amount_claimed": null, "amount_appropriate": 30000, "amount_paid_earlier": null, "amount_awarded": 30000, "is_monthly": false,
+         "evidence": "Sąd doszedł do wniosku, iż kwota zadośćuczynienia winna wynieść 30 000,00 zł"},
+        {"type": "odszkodowanie", "amount_claimed": null, "amount_appropriate": 49059.75, "amount_paid_earlier": null, "amount_awarded": 49059.75, "is_monthly": false,
+         "evidence": "ostatecznie utraciła dochód wynoszący 49 059,75 zł (51 199,75 minus 2 140,00 zł)"},
+        {"type": "odszkodowanie", "amount_claimed": null, "amount_appropriate": 1324.19, "amount_paid_earlier": null, "amount_awarded": 1324.19, "is_monthly": false,
+         "evidence": "378,74 zł ... kosztami leczenia ... 945,45 zł ... kosztami dojazdu"}
+      ]
+    }
+  ],
+  "notes": "Driver rear-ended while stopped at a pedestrian crossing (2016); age 50. Uszczerbek 25% (15% neurological + orthopaedic). Zadośćuczynienie 30 000; lost earnings abroad (1 700 EUR × 7 months − sickness benefit) 49 059.75; medical costs 378.74 + travel 945.45 = 1 324.19. The claim amounts are not given in the reasoning (she lost 11.2% of the case)."
+}

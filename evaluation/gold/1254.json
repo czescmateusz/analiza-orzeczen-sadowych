@@ -1,0 +1,38 @@
+{
+  "case_number": "I ACa 350/12",
+  "is_road_accident": true,
+  "claimants": [
+    {
+      "role": "poszkodowany",
+      "relation": null,
+      "sex": "K",
+      "age_at_accident": null,
+      "victim_died": false,
+      "injuries": [
+        "wieloodłamowe złamanie bliższej nasady kości ramiennej lewej",
+        "złamanie kości kulszowej, łonowej i krzyżowej po stronie lewej",
+        "złamanie III i IV żebra lewego",
+        "złamanie wyrostka poprzecznego kręgu lędźwiowego",
+        "uraz głowy z krwiakiem podtwardówkowym",
+        "stan septyczny i ropnie miednicy małej",
+        "ograniczenie ruchomości stawu barkowego lewego",
+        "zaburzenia adaptacyjne pod postacią zespołu depresyjno-lękowego",
+        "blizny pooperacyjne"
+      ],
+      "permanent_damage_percent": null,
+      "contributory_negligence_percent": null,
+      "awards": [
+        {
+          "type": "zadośćuczynienie",
+          "amount_claimed": 135000,
+          "amount_appropriate": 165000,
+          "amount_paid_earlier": 55000,
+          "amount_awarded": 100000,
+          "is_monthly": false,
+          "evidence": "taką kwotą zadośćuczynienia jest kwota 165.000 zł jaką łącznie powódka otrzyma"
+        }
+      ]
+    }
+  ],
+  "notes": "Pedestrian on a crossing. 165 000 in total = 55 000 paid by the insurer + 10 000 nawiązka from the criminal case + 100 000 awarded. The first instance awarded 135 000 (200 000 in total); the appeal reduced it to 100 000. No % uszczerbku given."
+}

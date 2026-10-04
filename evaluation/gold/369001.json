@@ -1,0 +1,23 @@
+{
+  "case_number": "I C 161/18",
+  "is_road_accident": true,
+  "claimants": [
+    {
+      "role": "poszkodowany", "relation": null, "sex": "M", "age_at_accident": null, "victim_died": false,
+      "injuries": [
+        "uraz głowy",
+        "stłuczenie klatki piersiowej po stronie lewej",
+        "złamanie główki kości promieniowej lewej bez przemieszczenia",
+        "uraz kolana z podskórnym wylewem krwawym",
+        "odłamki szkła w tkance podskórnej",
+        "lęk przed jazdą samochodem"
+      ],
+      "permanent_damage_percent": 0, "contributory_negligence_percent": null,
+      "awards": [
+        {"type": "zadośćuczynienie", "amount_claimed": 15000, "amount_appropriate": 20000, "amount_paid_earlier": 5000, "amount_awarded": 15000, "is_monthly": false,
+         "evidence": "uzasadnione jest przyznanie powodowi zadośćuczynienia w łącznej wysokości 20 000 złotych"}
+      ]
+    }
+  ],
+  "notes": "Passenger in a 2008 head-on crash in which the driver died. No permanent uszczerbek (recorded as 0). The claim was renewed in 2017; 20 000 in total minus 5 000 paid in 2009."
+}

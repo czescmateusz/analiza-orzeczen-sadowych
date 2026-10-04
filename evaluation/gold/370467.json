@@ -1,0 +1,15 @@
+{
+  "case_number": "I C 144/18",
+  "is_road_accident": true,
+  "claimants": [
+    {
+      "role": "osoba_najblizsza", "relation": "syn zmarłego", "sex": "M", "age_at_accident": null, "victim_died": true,
+      "injuries": [], "permanent_damage_percent": null, "contributory_negligence_percent": null,
+      "awards": [
+        {"type": "zadośćuczynienie", "amount_claimed": 52000, "amount_appropriate": 40000, "amount_paid_earlier": 18000, "amount_awarded": 22000, "is_monthly": false,
+         "evidence": "odpowiednie do doznanej przez powoda krzywdy ... będzie zadośćuczynienie w kwocie 40 000 zł"}
+      ]
+    }
+  ],
+  "notes": "The 79-year-old father, riding a moped, was hit by a car pulling out of a side road (2016). Art. 446 § 4: 40 000 appropriate − 18 000 paid = 22 000. Experts: a normal grief reaction with no disorder."
+}

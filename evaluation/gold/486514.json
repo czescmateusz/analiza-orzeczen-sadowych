@@ -1,0 +1,20 @@
+{
+  "case_number": "I C 219/21",
+  "is_road_accident": true,
+  "claimants": [
+    {
+      "role": "poszkodowany", "relation": null, "sex": "M", "age_at_accident": 21, "victim_died": false,
+      "injuries": ["złamanie koron zębów 12, 13 i 14 (ząb 12 do ekstrakcji)", "utrata żywotności miazgi zębów 13 i 14"],
+      "permanent_damage_percent": 2, "contributory_negligence_percent": null,
+      "awards": [
+        {"type": "zadośćuczynienie", "amount_claimed": 13209, "amount_appropriate": 9791, "amount_paid_earlier": 1791, "amount_awarded": 8000, "is_monthly": false,
+         "evidence": "kwota 8.000 zł zasądzona od pozwanego oraz uprzednio wypłacona przez pozwanego z tytułu zadośćuczynienia kwota 1.791 złotych powinna zrekompensować powodowi jego krzywdę"},
+        {"type": "odszkodowanie", "amount_claimed": 300, "amount_appropriate": 300, "amount_paid_earlier": null, "amount_awarded": 300, "is_monthly": false,
+         "evidence": "należało zasądzić od pozwanego na rzecz powoda dochodzoną kwotę 300 złotych"},
+        {"type": "odszkodowanie", "amount_claimed": null, "amount_appropriate": 10200, "amount_paid_earlier": null, "amount_awarded": 10200, "is_monthly": false,
+         "evidence": "zasądzeniem od pozwanego na rzecz powoda kwoty 10.200 zł jak w punkcie 1b wyroku"}
+      ]
+    }
+  ],
+  "notes": "Road event 2021; age 21. 2% permanent uszczerbek (1% extraction of 12 + 0.5% each for 13 and 14). Total 18 500 = 8 000 zadośćuczynienie + 300 dental costs already incurred + 10 200 future prosthetic treatment."
+}

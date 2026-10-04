@@ -1,0 +1,101 @@
+{
+  "case_number": "I ACa 757/12",
+  "is_road_accident": true,
+  "claimants": [
+    {
+      "role": "osoba_najblizsza",
+      "relation": "żona zmarłego",
+      "sex": "K",
+      "age_at_accident": null,
+      "victim_died": true,
+      "injuries": [],
+      "permanent_damage_percent": null,
+      "contributory_negligence_percent": 50,
+      "awards": [
+        {
+          "type": "zadośćuczynienie",
+          "amount_claimed": 20000,
+          "amount_appropriate": 10000,
+          "amount_paid_earlier": null,
+          "amount_awarded": 5000,
+          "is_monthly": false,
+          "evidence": "zasądza od pozwanego na rzecz powódki M. N. (1) kwotę 5.000 zł"
+        },
+        {
+          "type": "odszkodowanie",
+          "amount_claimed": 20000,
+          "amount_appropriate": null,
+          "amount_paid_earlier": 20000,
+          "amount_awarded": 0,
+          "is_monthly": false,
+          "evidence": "powódka M. N. (1) nie wykazała, by śmierć męża spowodowała pogorszenie się jej sytuacji materialnej"
+        }
+      ]
+    },
+    {
+      "role": "osoba_najblizsza",
+      "relation": "córka zmarłego",
+      "sex": "K",
+      "age_at_accident": 2,
+      "victim_died": true,
+      "injuries": [],
+      "permanent_damage_percent": null,
+      "contributory_negligence_percent": 50,
+      "awards": [
+        {
+          "type": "zadośćuczynienie",
+          "amount_claimed": 20000,
+          "amount_appropriate": 10000,
+          "amount_paid_earlier": null,
+          "amount_awarded": 5000,
+          "is_monthly": false,
+          "evidence": "zasądza od pozwanego na rzecz powódki S. N. ... kwotę 5.000 zł"
+        },
+        {
+          "type": "odszkodowanie",
+          "amount_claimed": 20000,
+          "amount_appropriate": null,
+          "amount_paid_earlier": 25000,
+          "amount_awarded": 5000,
+          "is_monthly": false,
+          "evidence": "należne jej odszkodowanie z tytułu roszczenia określonego w art. 446 § 3 wynosi 5000 zł"
+        }
+      ]
+    },
+    {
+      "role": "osoba_najblizsza",
+      "relation": "syn zmarłego",
+      "sex": "M",
+      "age_at_accident": 4,
+      "victim_died": true,
+      "injuries": [
+        "zaburzenia zachowania i agresja po śmierci ojca",
+        "trudności z koncentracją uwagi",
+        "mikrouszkodzenia w tkankach mózgowych"
+      ],
+      "permanent_damage_percent": null,
+      "contributory_negligence_percent": 50,
+      "awards": [
+        {
+          "type": "zadośćuczynienie",
+          "amount_claimed": 20000,
+          "amount_appropriate": 40000,
+          "amount_paid_earlier": null,
+          "amount_awarded": 20000,
+          "is_monthly": false,
+          "evidence": "W uznaniu Sądu kwota odpowiednią z tego tytułu będzie 40.000 zł, dlatego ... zasądzono na jego rzecz 20.000 zł"
+        },
+        {
+          "type": "odszkodowanie",
+          "amount_claimed": 20000,
+          "amount_appropriate": null,
+          "amount_paid_earlier": 25000,
+          "amount_awarded": 15000,
+          "is_monthly": false,
+          "evidence": "odszkodowanie z tego tytułu powinno wynosić 15 000 zł"
+        }
+      ]
+    }
+  ],
+  "notes": "The father (29) died in 2007 and contributed 50% (speeding); the court reduced all awards by 50%. Zadośćuczynienie under art. 448 (death before 3.08.2008). The first instance denied zadośćuczynienie to the wife and daughter; the appeal granted 5 000 each. Their amount_appropriate of 10 000 is implied (5 000 after a 50% reduction), not stated. The insurer had paid 446 § 3 odszkodowanie of 20 000 / 25 000 / 25 000 (after 50%). The amount_awarded for the children's 446 § 3 claims is the first-instance figure; how it relates to the earlier payments is unclear in the text."
+}

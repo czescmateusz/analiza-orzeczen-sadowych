@@ -1,0 +1,16 @@
+{
+  "case_number": "III C 533/18",
+  "is_road_accident": true,
+  "claimants": [
+    {
+      "role": "poszkodowany", "relation": null, "sex": "M", "age_at_accident": null, "victim_died": false,
+      "injuries": ["skręcenie kręgosłupa szyjnego (whiplash) z bólami głowy i karku", "zaburzenia adaptacyjne"],
+      "permanent_damage_percent": 6, "contributory_negligence_percent": null,
+      "awards": [
+        {"type": "zadośćuczynienie", "amount_claimed": 40000, "amount_appropriate": 9500, "amount_paid_earlier": 1500, "amount_awarded": 8000, "is_monthly": false,
+         "evidence": "funkcję kompensacyjną zadośćuczynienia spełni dalsza kwota 8.000 zł"}
+      ]
+    }
+  ],
+  "notes": "Claim against PBUK (foreign vehicle), 2014 crash. 1 500 paid in liquidation. The court calls the 8 000 'dalsza kwota' (on top of the 1 500), so the appropriate total of 9 500 is implied; in one place it says 'łącznie ... 8 000' (ambiguous). Uszczerbek: 1% orthopaedic (permanent) + 5% psychiatric (long-term) = 6. The award was reduced for poor cooperation and pre-existing problems."
+}

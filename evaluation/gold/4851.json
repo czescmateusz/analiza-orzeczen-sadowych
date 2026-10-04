@@ -1,0 +1,46 @@
+{
+  "case_number": "VI ACa 236/12",
+  "is_road_accident": true,
+  "claimants": [
+    {
+      "role": "poszkodowany",
+      "relation": null,
+      "sex": "K",
+      "age_at_accident": null,
+      "victim_died": false,
+      "injuries": ["utrata pamięci"],
+      "permanent_damage_percent": null,
+      "contributory_negligence_percent": null,
+      "awards": [
+        {
+          "type": "zadośćuczynienie",
+          "amount_claimed": 200000,
+          "amount_appropriate": null,
+          "amount_paid_earlier": null,
+          "amount_awarded": 0,
+          "is_monthly": false,
+          "evidence": "Sąd Okręgowy w Warszawie oddalił powództwo"
+        },
+        {
+          "type": "renta",
+          "amount_claimed": 65081.55,
+          "amount_appropriate": null,
+          "amount_paid_earlier": null,
+          "amount_awarded": 0,
+          "is_monthly": false,
+          "evidence": "renty w kwocie 65.081,55 zł ... za okres od 1 września 2004 r. do 31 grudnia 2010 r."
+        },
+        {
+          "type": "renta",
+          "amount_claimed": 2915.91,
+          "amount_appropriate": null,
+          "amount_paid_earlier": null,
+          "amount_awarded": 0,
+          "is_monthly": true,
+          "evidence": "renty w kwocie 550 zł miesięcznie ... renty uzupełniającej miesięcznie ... 2.365,91 zł"
+        }
+      ]
+    }
+  ],
+  "notes": "Driver against UFG (unknown other vehicle). Dismissed: no proof that another road user caused the crash, and the claims were time-barred. The injuries are not described (only 'numerous injuries and operations'; she lost her memory of the event). Monthly rent claimed = 550 increased needs + 2 365.91 supplementary. NOT a valuation case: exclude from award statistics."
+}

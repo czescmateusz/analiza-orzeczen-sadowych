@@ -1,0 +1,53 @@
+{
+  "case_number": "I ACa 897/12",
+  "is_road_accident": true,
+  "claimants": [
+    {
+      "role": "poszkodowany",
+      "relation": null,
+      "sex": "K",
+      "age_at_accident": null,
+      "victim_died": true,
+      "injuries": [
+        "złamanie trzech żeber",
+        "stłuczenie lewej piersi i klatki piersiowej",
+        "depresja wymagająca leczenia psychiatrycznego"
+      ],
+      "permanent_damage_percent": 10,
+      "contributory_negligence_percent": null,
+      "awards": [
+        {"type": "zadośćuczynienie", "amount_claimed": 37000, "amount_appropriate": 18000, "amount_paid_earlier": 13000, "amount_awarded": 5000, "is_monthly": false,
+         "evidence": "adekwatnym zadośćuczynieniem w niniejszej sprawie będzie kwota 18.000 zł ... należało zasądzić z tego tytułu kwotę 5 000 zł"},
+        {"type": "zadośćuczynienie", "amount_claimed": 175000, "amount_appropriate": 85000, "amount_paid_earlier": 25000, "amount_awarded": 60000, "is_monthly": false,
+         "evidence": "odpowiednim zadośćuczynieniem za krzywdę powódek w związku ze śmiercią ich męża i ojca są kwoty po 85.000zł"},
+        {"type": "odszkodowanie", "amount_claimed": 175000, "amount_appropriate": 45000, "amount_paid_earlier": 25000, "amount_awarded": 20000, "is_monthly": false,
+         "evidence": "Kwota odszkodowania w wysokości 45.000zł na rzecz powódki H. jest zatem kwotą jak najbardziej adekwatną"},
+        {"type": "odszkodowanie", "amount_claimed": 7219.78, "amount_appropriate": null, "amount_paid_earlier": null, "amount_awarded": 1104, "is_monthly": false,
+         "evidence": "kwotę 1.104,00 zł, na którą złożyło się 749 zł ... leków, 180 zł ... taksówkami i 70 zł ... komunikacją miejską ... 105 zł tytułem garażowania"},
+        {"type": "renta", "amount_claimed": 700, "amount_appropriate": null, "amount_paid_earlier": null, "amount_awarded": 0, "is_monthly": true,
+         "evidence": "oddalił żądanie powódki H. C. co do renty w wysokości 700 zł miesięcznie"}
+      ]
+    },
+    {
+      "role": "osoba_najblizsza",
+      "relation": "córka zmarłego",
+      "sex": "K",
+      "age_at_accident": null,
+      "victim_died": true,
+      "injuries": [],
+      "permanent_damage_percent": null,
+      "contributory_negligence_percent": null,
+      "awards": [
+        {"type": "zadośćuczynienie", "amount_claimed": 175000, "amount_appropriate": 85000, "amount_paid_earlier": 25000, "amount_awarded": 60000, "is_monthly": false,
+         "evidence": "odpowiednim zadośćuczynieniem ... są kwoty po 85.000zł ... do zapłaty pozostają ostatecznie kwoty po 60.000zł"},
+        {"type": "odszkodowanie", "amount_claimed": 175000, "amount_appropriate": 25000, "amount_paid_earlier": 25000, "amount_awarded": 0, "is_monthly": false,
+         "evidence": "Kwota 25.000zł tytułem odszkodowania wypłacona już przez stronę pozwaną, jest kwotą adekwatną"},
+        {"type": "renta", "amount_claimed": null, "amount_appropriate": null, "amount_paid_earlier": null, "amount_awarded": 4500, "is_monthly": false,
+         "evidence": "skapitalizowana renta wynosi 4500zł (300 zł x 15)"},
+        {"type": "renta", "amount_claimed": 1200, "amount_appropriate": null, "amount_paid_earlier": null, "amount_awarded": 300, "is_monthly": true,
+         "evidence": "renty miesięcznej w kwocie 300zł na rzecz powódki J."}
+      ]
+    }
+  ],
+  "notes": "The husband/father died in a 2009 crash (art. 446 § 4 applies). The widow H. C. was an injured passenger AND lost her husband, so role = poszkodowany, with both art. 445 and 446 § 4 zadośćuczynienie listed. Widow total 86 104 = 5 000 (445) + 60 000 (446 § 4) + 20 000 (446 § 3) + 1 104 (expenses). The appeal raised the 446 § 4 sum from 55 000 to 85 000 for both plaintiffs. The 7 219.78 'other odszkodowanie' = 5 450.84 expenses + 1 329.69 business costs + 439.25 probate costs."
+}

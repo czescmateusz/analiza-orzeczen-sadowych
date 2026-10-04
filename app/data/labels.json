@@ -1,0 +1,246 @@
+{
+ "categories": [
+  {
+   "id": "glowa",
+   "label": "Uraz głowy, wstrząśnienie mózgu",
+   "synonyms": [
+    "glowa",
+    "glowy",
+    "wstrzas",
+    "mozg",
+    "czaszk",
+    "krwiak",
+    "nieprzytomn",
+    "utrata przytomnosci"
+   ]
+  },
+  {
+   "id": "szyja",
+   "label": "Uraz kręgosłupa szyjnego",
+   "synonyms": [
+    "szyj",
+    "kark",
+    "kregoslup szyjny",
+    "smagniecie",
+    "whiplash",
+    "kolnierz",
+    "odcinek szyjny"
+   ]
+  },
+  {
+   "id": "kregoslup",
+   "label": "Złamanie kręgosłupa lub miednicy",
+   "synonyms": [
+    "kregoslup",
+    "kreg",
+    "miednic",
+    "plecy",
+    "ledzwi",
+    "kosc ogonowa",
+    "krzyz"
+   ]
+  },
+  {
+   "id": "rdzen",
+   "label": "Uszkodzenie rdzenia kręgowego, paraliż",
+   "synonyms": [
+    "rdzen",
+    "paraliz",
+    "sparalizow",
+    "niedowlad",
+    "wozek",
+    "porazeni"
+   ]
+  },
+  {
+   "id": "noga",
+   "label": "Złamanie nogi, stopy lub kostki",
+   "synonyms": [
+    "noga",
+    "nogi",
+    "kostk",
+    "stop",
+    "udo",
+    "piszczel",
+    "podudzi",
+    "rzepk",
+    "pieta",
+    "zlamana noga"
+   ]
+  },
+  {
+   "id": "reka",
+   "label": "Złamanie ręki, ramienia, obojczyka lub dłoni",
+   "synonyms": [
+    "reka",
+    "reki",
+    "ramie",
+    "nadgarst",
+    "obojczyk",
+    "dlon",
+    "palec",
+    "palc",
+    "lokiec",
+    "lopatk",
+    "zlamana reka"
+   ]
+  },
+  {
+   "id": "kolano",
+   "label": "Kolano, więzadła, łąkotki, zwichnięcia",
+   "synonyms": [
+    "kolan",
+    "wiezad",
+    "lakotk",
+    "zwichn",
+    "skrecenie kostki",
+    "staw"
+   ]
+  },
+  {
+   "id": "klatka",
+   "label": "Żebra, klatka piersiowa, płuca",
+   "synonyms": [
+    "zebr",
+    "klatka",
+    "piersi",
+    "pluc",
+    "odma",
+    "mostek"
+   ]
+  },
+  {
+   "id": "wewnetrzne",
+   "label": "Narządy wewnętrzne (śledziona, wątroba, nerki, jelita)",
+   "synonyms": [
+    "sledzion",
+    "watrob",
+    "nerk",
+    "jelit",
+    "brzuch",
+    "krwotok wewnetrzny",
+    "narzady wewnetrzne",
+    "trzustk"
+   ]
+  },
+  {
+   "id": "twarz",
+   "label": "Twarz, zęby, oko, słuch",
+   "synonyms": [
+    "twarz",
+    "nos",
+    "zab",
+    "zeb",
+    "szczek",
+    "zuchw",
+    "oko",
+    "oczy",
+    "wzrok",
+    "sluch",
+    "ucho"
+   ]
+  },
+  {
+   "id": "amputacja",
+   "label": "Amputacja, utrata kończyny lub palców",
+   "synonyms": [
+    "amputac",
+    "amputow",
+    "utrata nogi",
+    "utrata reki",
+    "kikut",
+    "proteza"
+   ]
+  },
+  {
+   "id": "oparzenia_blizny",
+   "label": "Oparzenia, rany, blizny",
+   "synonyms": [
+    "oparzen",
+    "blizn",
+    "rana",
+    "rany",
+    "szwy",
+    "szycie",
+    "oszpecen"
+   ]
+  },
+  {
+   "id": "lekkie",
+   "label": "Stłuczenia, otarcia, lekkie obrażenia",
+   "synonyms": [
+    "stluczen",
+    "otarc",
+    "siniak",
+    "sinia",
+    "lekkie",
+    "potluczen",
+    "zadrapan"
+   ]
+  },
+  {
+   "id": "psychika",
+   "label": "Skutki psychiczne (PTSD, depresja, lęk przed jazdą)",
+   "synonyms": [
+    "ptsd",
+    "depresj",
+    "lek",
+    "strach",
+    "nerwic",
+    "psychi",
+    "koszmar",
+    "bezsennosc",
+    "fobi",
+    "trauma"
+   ]
+  }
+ ],
+ "factors": {
+  "trwale_skutki": "Trwałe skutki, kalectwo, złe rokowania",
+  "dlugie_leczenie": "Długie leczenie lub rehabilitacja",
+  "bol_cierpienie": "Silny ból i cierpienie",
+  "psychika": "Skutki psychiczne",
+  "utrata_aktywnosci": "Utrata aktywności (praca, sport, pasje)",
+  "zaleznosc_od_innych": "Zależność od pomocy innych",
+  "mlody_wiek": "Młody wiek",
+  "oszpecenie": "Blizny, oszpecenie",
+  "zycie_rodzinne": "Wpływ na życie rodzinne i osobiste",
+  "wiez_ze_zmarlym": "Silna więź ze zmarłym",
+  "nagla_smierc": "Nagła, tragiczna śmierć"
+ },
+ "shards": 64,
+ "inflation": {
+  "base": 2025,
+  "factors": {
+   "2004": 1.9814,
+   "2005": 1.9406,
+   "2006": 1.9214,
+   "2007": 1.8745,
+   "2008": 1.799,
+   "2009": 1.7381,
+   "2010": 1.6941,
+   "2011": 1.6243,
+   "2012": 1.5663,
+   "2013": 1.5523,
+   "2014": 1.5523,
+   "2015": 1.5664,
+   "2016": 1.5759,
+   "2017": 1.545,
+   "2018": 1.5207,
+   "2019": 1.4865,
+   "2020": 1.4376,
+   "2021": 1.3678,
+   "2022": 1.1957,
+   "2023": 1.0733,
+   "2024": 1.036,
+   "2025": 1.0,
+   "2026": 1.0
+  },
+  "sources": [
+   "https://stat.gov.pl/obszary-tematyczne/ceny-handel/wskazniki-cen/wskazniki-cen-towarow-i-uslug-konsumpcyjnych-pot-inflacja-/roczne-wskazniki-cen-towarow-i-uslug-konsumpcyjnych/",
+   "https://stat.gov.pl/sygnalne/komunikaty-i-obwieszczenia/lista-komunikatow-i-obwieszczen/komunikat-w-sprawie-sredniorocznego-wskaznika-cen-towarow-i-uslug-konsumpcyjnych-ogolem-w-2025-r-,50,13.html"
+  ]
+ },
+ "parser": "p2",
+ "reasons": "r3"
+}

@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Metodologia i model statystyczny</title>
+  <meta name="description" content="Jak powstały dane, jaka była próba orzeczeń, założenia, model statystyczny kwot zadośćuczynienia i trend w czasie.">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="metodologia.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <nav class="topnav" aria-label="Sekcje aplikacji">
+        <a href="index.html">Porównaj ofertę</a>
+        <a href="przegladarka.html">Przeglądarka orzeczeń</a>
+        <a href="metodologia.html" aria-current="page">Metodologia</a>
+      </nav>
+      <h1>Metodologia i model statystyczny</h1>
+      <p class="lead">Skąd pochodzą dane, jak je odczytano, jakie przyjęto założenia, co wpływa na wysokość
+        zadośćuczynienia i jak kwoty zmieniały się w czasie.</p>
+    </div>
+  </header>
+
+  <main class="wrap prose">
+    <nav class="toc card" aria-label="Spis treści">
+      <ol>
+        <li><a href="#proba">Analizowana próba</a></li>
+        <li><a href="#odczyt">Jak odczytano orzeczenia</a></li>
+        <li><a href="#definicje">Definicje i statystyki</a></li>
+        <li><a href="#zalozenia">Założenia i ograniczenia</a></li>
+        <li><a href="#trend">Trend kwot w czasie</a></li>
+        <li><a href="#model">Model statystyczny: co podnosi, a co obniża kwoty</a></li>
+        <li><a href="#slowa">Słowa i frazy w uzasadnieniach</a></li>
+      </ol>
+    </nav>
+
+    <section id="proba">
+      <h2>1. Analizowana próba</h2>
+      <p>Źródłem są orzeczenia sądów powszechnych i Sądu Najwyższego opublikowane w Systemie Analizy Orzeczeń Sądowych
+        (<a href="https://www.saos.org.pl">SAOS</a>), pobrane w całości 2 października 2026 r. Orzeczenia są zanonimizowane.</p>
+      <div id="funnel"></div>
+      <p id="sample-notes" class="notes"></p>
+    </section>
+
+    <section id="odczyt">
+      <h2>2. Jak odczytano orzeczenia</h2>
+      <p>Wszystkie dane odczytano <strong>regułami deterministycznymi</strong> (wyrażenia regularne i proste reguły języka
+        prawniczego), bez modeli językowych. Ten sam tekst zawsze daje ten sam wynik, a każdą liczbę można powiązać z
+        fragmentem orzeczenia – w <a href="przegladarka.html">przeglądarce orzeczeń</a> widać zdanie, z którego pochodzi.</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Element</th><th>Skąd</th></tr></thead>
+        <tbody>
+          <tr><td>Kwota zasądzonego zadośćuczynienia</td><td>sentencja, z rozbiciem kwot łącznych według uzasadnienia</td></tr>
+          <tr><td>Kwota uznana przez sąd za odpowiednią</td><td>uzasadnienie („odpowiednią kwotą jest…”)</td></tr>
+          <tr><td>Wcześniejsza wypłata ubezpieczyciela</td><td>uzasadnienie („wypłacił…”)</td></tr>
+          <tr><td>Kategorie obrażeń</td><td>opis obrażeń w ustaleniach faktycznych</td></tr>
+          <tr><td>Okoliczności wskazane przez sąd</td><td>zdania z ustaleń i rozważań sądu</td></tr>
+          <tr><td>Stwierdzenie „wypłata była zaniżona”</td><td>rozważania sądu</td></tr>
+        </tbody>
+      </table></div>
+      <p>Reguły nie są nieomylne i część wartości jest odczytana błędnie. Dlatego pokazujemy rozkład wielu spraw (mediana i
+        kwartyle są odporne na pojedyncze błędy), a nie pojedynczą kwotę, i zawsze podajemy sygnaturę orzeczenia źródłowego.</p>
+    </section>
+
+    <section id="definicje">
+      <h2>3. Definicje i statystyki</h2>
+      <dl>
+        <dt>Kwota sądowa (odpowiednia suma)</dt>
+        <dd>Łączna kwota zadośćuczynienia, którą sąd uznał za odpowiednią (art. 445 § 1 lub 446 § 4 k.c.), łącznie z tym, co
+          ubezpieczyciel wypłacił wcześniej. Jeżeli sąd nie podał jej wprost, przyjmujemy kwotę zasądzoną powiększoną o
+          wcześniejszą wypłatę, a gdy wypłata nie jest znana – samą kwotę zasądzoną.</dd>
+        <dt>Wcześniejsza wypłata ubezpieczyciela</dt>
+        <dd>Kwota wypłacona w postępowaniu likwidacyjnym przed procesem, tak jak opisał ją sąd.</dd>
+        <dt>Podobne sprawy</dt>
+        <dd>Do 80 spraw najbardziej podobnych do opisanej sytuacji: ta sama rola (poszkodowany lub osoba bliska zmarłego),
+          wspólna kategoria obrażeń lub ta sama relacja do zmarłego, a potem ranking według podobieństwa kategorii, stopnia
+          uszczerbku, wieku i okoliczności. Gdy podobnych spraw jest mniej niż 15, kryteria są luzowane.</dd>
+        <dt>Mediana</dt>
+        <dd>Kwota środkowa: w połowie spraw sąd uznał za odpowiednią mniej, w połowie więcej.</dd>
+        <dt>Pierwszy kwartyl (Q1) i trzeci kwartyl (Q3)</dt>
+        <dd>Q1 to kwota, poniżej której leży 25% spraw; Q3 – kwota, powyżej której leży 25% spraw.</dd>
+        <dt>Rozstęp międzykwartylowy (Q1–Q3)</dt>
+        <dd>Przedział od Q1 do Q3, w którym mieści się 50% spraw o środkowych kwotach. Na wykresach to niebieski pas.</dd>
+      </dl>
+    </section>
+
+    <section id="zalozenia">
+      <h2>4. Założenia i ograniczenia</h2>
+      <ul>
+        <li><strong>Inflacja.</strong> W porównaniu ofert kwoty z orzeczeń są domyślnie przeliczane na ceny z ostatniego pełnego
+          roku według średniorocznych wskaźników cen towarów i usług konsumpcyjnych GUS – od roku wyroku, bo sąd ustala
+          odpowiednią sumę według cen z daty orzekania (art. 363 § 2 k.c.). Orzeczenia z bieżącego roku zostają bez zmian
+          (GUS nie podał jeszcze wskaźnika rocznego). Przeliczenie można wyłączyć. Model statystyczny uwzględnia rok
+          orzeczenia, więc inflacja nie zniekształca wyników dla pozostałych cech.</li>
+        <li><strong>Tylko sprawy, które trafiły do sądu.</strong> Sprawy zakończone ugodą lub akceptacją oferty ubezpieczyciela nie
+          są widoczne. Do sądu trafiają zwykle sprawy, w których poszkodowany uznał ofertę za zbyt niską – to tzw. efekt selekcji.</li>
+        <li><strong>Niepełne pokrycie SAOS.</strong> Baza nie zawiera wszystkich orzeczeń; w ostatnich latach publikuje ich mniej,
+          a orzeczenia sądów apelacyjnych są w niej nadreprezentowane.</li>
+        <li><strong>Zakres:</strong> zadośćuczynienie za krzywdę (na osobie) z wypadków drogowych w sprawach cywilnych.
+          Odszkodowania za szkody majątkowe i renty nie są jeszcze uwzględnione w porównaniu.</li>
+        <li><strong>Kilku poszkodowanych w jednej sprawie</strong> otrzymuje wspólny zestaw kategorii obrażeń (opis obrażeń trudno
+          przypisać do osoby); relację do zmarłego ustalamy z tekstu tylko wtedy, gdy w sprawie jest jedna osoba bliska.</li>
+        <li><strong>Związek, nie przyczyna.</strong> Model pokazuje, jakie cechy spraw współwystępują z wyższymi lub niższymi
+          kwotami. Nie dowodzi, że dana okoliczność sama „powoduje” wyższą kwotę.</li>
+        <li><strong>To nie jest porada prawna.</strong> Każda sprawa jest inna; o wysokości zadośćuczynienia decyduje sąd po
+          ocenie wszystkich okoliczności.</li>
+      </ul>
+    </section>
+
+    <section id="trend">
+      <h2>5. Trend kwot w czasie</h2>
+      <p>Mediana kwot uznanych przez sądy za odpowiednie oraz mediana wcześniejszych wypłat ubezpieczycieli, rok po roku
+        (kwoty nominalne; lata z co najmniej 30 sprawami). Pas to rozstęp międzykwartylowy (Q1–Q3) kwot sądowych.</p>
+      <div class="segmented" role="radiogroup" aria-label="Kwoty na wykresie">
+        <label><input type="radio" name="prices" value="nom" checked> nominalnie</label>
+        <label><input type="radio" name="prices" value="real"> w cenach z <span class="base-year">2025</span> r.</label>
+      </div>
+      <div id="trend-charts" class="multiples"></div>
+      <p id="trend-notes" class="notes"></p>
+      <details><summary>Tabela: trend w czasie</summary><div id="trend-table" class="table-wrap"></div></details>
+    </section>
+
+    <section id="model">
+      <h2>6. Model statystyczny: co podnosi, a co obniża kwoty</h2>
+      <p>Regresja liniowa logarytmu kwoty sądowej (MNK), osobno dla poszkodowanych i dla osób bliskich zmarłego. Jednostką
+        jest roszczenie; błędy standardowe są grupowane według orzeczeń (kilka roszczeń z jednej sprawy nie jest niezależnych).
+        Model uwzględnia jednocześnie wszystkie cechy z wykresu oraz efekty roku orzeczenia. Wynik dla każdej cechy to
+        procentowa różnica kwoty przy pozostałych cechach bez zmian, z 95-procentowym przedziałem ufności. Do modelu weszły
+        tylko roszczenia, w których kwota sądowa jest wskazana przez sąd albo wyliczona z kwoty zasądzonej i wcześniejszej wypłaty.</p>
+      <p class="legend-row">
+        <span class="key"><span class="swatch up"></span>istotnie podnosi kwotę</span>
+        <span class="key"><span class="swatch down"></span>istotnie obniża kwotę</span>
+        <span class="key"><span class="swatch ns"></span>brak istotnego wpływu (p ≥ 0,05)</span>
+      </p>
+      <h3>Poszkodowani w wypadku</h3>
+      <p id="model-p-summary" class="notes"></p>
+      <div id="model-p"></div>
+      <h3>Osoby bliskie zmarłego</h3>
+      <p id="model-b-summary" class="notes"></p>
+      <div id="model-b"></div>
+      <h3>Jak czytać te wyniki</h3>
+      <ul>
+        <li><strong>Stopień trwałego uszczerbku</strong> różnicuje kwoty najsilniej, a zaraz po nim rodzaj obrażeń (paraliż,
+          amputacja, złamania kręgosłupa podnoszą kwoty; urazy kręgosłupa szyjnego i lekkie obrażenia je obniżają).</li>
+        <li><strong>Orzeczenia II instancji</strong> mają wyraźnie wyższe kwoty, ale to głównie selekcja: sprawy o wysokie kwoty
+          zaczynają się w sądach okręgowych, a ich apelacje rozpoznają sądy apelacyjne, które publikują więcej orzeczeń.</li>
+        <li><strong>Przyczynienie się</strong> u poszkodowanych współwystępuje z wyższą odpowiednią sumą: sąd ustala odpowiednią
+          sumę przed jej obniżeniem o przyczynienie, a przyczynienie analizuje się częściej w sprawach poważnych.</li>
+        <li><strong>„Silna więź ze zmarłym”</strong> pojawia się w ok. 85% spraw osób bliskich, więc praktycznie nie różnicuje spraw;
+          sprawy bez tej wzmianki są nietypowe. Ten wynik nie znaczy, że silna więź obniża kwotę.</li>
+        <li>Model dla osób bliskich wyjaśnia mniej zmienności kwot niż model dla poszkodowanych: o kwocie decydują tu okoliczności
+          trudne do uchwycenia regułami (np. charakter relacji, sytuacja rodzinna).</li>
+      </ul>
+      <details><summary>Tabela: wszystkie współczynniki modeli</summary><div id="model-table" class="table-wrap"></div></details>
+    </section>
+
+    <section id="slowa">
+      <h2>7. Słowa i frazy w uzasadnieniach</h2>
+      <p>Badamy nie tylko pojedyncze słowa, ale też <strong>frazy 2-, 3- i 4-wyrazowe</strong> (n-gramy), np. „kołnierza
+        ortopedycznego” czy „renty z tytułu zwiększonych potrzeb”. Słowa sprowadzamy do pierwszych 7 liter (rdzenia), żeby
+        różne formy gramatyczne liczyły się razem. Frazy nie przekraczają granic zdań, a słowa krótsze niż 3 litery są pomijane.
+        Przetestowano <span id="kw-tested"></span> cech występujących w co najmniej 2% (pojedyncze słowa i pary) lub 1%
+        (frazy 3- i 4-wyrazowe), ale nie więcej niż 60% orzeczeń. Każdą sprawdzono w części uzasadnienia, w której sąd mówi
+        we własnym imieniu, przy kontroli kategorii obrażeń, uszczerbku, relacji do zmarłego, roku, instancji i długości
+        uzasadnienia. Wyniki skorygowano na wielokrotne testowanie łącznie dla wszystkich cech (procedura
+        Benjaminiego–Hochberga, FDR &lt; 5%); istotnych okazało się <span id="kw-significant"></span>.</p>
+      <p>To analiza eksploracyjna: frazy wskazują, jakie okoliczności towarzyszą wyższym i niższym kwotom, a nie co je
+        powoduje. Część fraz to cytaty przepisów (np. art. 444 § 2 k.c. o rencie), które sądy przytaczają w poważniejszych
+        sprawach. Pominięto słowa, które wprost powtarzają kwotę albo zdradzają szczebel sądu (np. nazwy sądów, „SSR”).</p>
+      <div class="segmented" role="radiogroup" aria-label="Długość frazy">
+        <label><input type="radio" name="ngram" value="1" checked> 1 słowo</label>
+        <label><input type="radio" name="ngram" value="2"> 2 słowa</label>
+        <label><input type="radio" name="ngram" value="3"> 3 słowa</label>
+        <label><input type="radio" name="ngram" value="4"> 4 słowa</label>
+      </div>
+      <p id="kw-n-summary" class="notes"></p>
+      <div class="multiples">
+        <div><h3>Najsilniej podnoszą kwotę</h3><div id="kw-up"></div></div>
+        <div><h3>Najsilniej obniżają kwotę</h3><div id="kw-down"></div></div>
+      </div>
+      <details><summary>Tabela: istotne słowa i frazy</summary><div id="kw-table" class="table-wrap"></div></details>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <p>Wersje metod: <span id="versions"></span>. Kod analizy: moduły <code>orzeczenia.parse</code>, <code>orzeczenia.reasons</code>,
+      <code>orzeczenia.categories</code>, <code>orzeczenia.model</code>. To nie jest porada prawna. <a href="https://github.com/czescmateusz/analiza-orzeczen-sadowych">Kod źródłowy i dane: GitHub</a>.</p>
+  </footer>
+  <div id="tooltip" class="tooltip" role="status" hidden></div>
+</body>
+</html>

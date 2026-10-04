@@ -1,0 +1,18 @@
+{
+  "case_number": "I C 849/21",
+  "is_road_accident": true,
+  "claimants": [
+    {
+      "role": "poszkodowany", "relation": null, "sex": "K", "age_at_accident": null, "victim_died": false,
+      "injuries": ["wieloodłamowe złamanie kręgu L2", "złamanie kręgu L1 bez przemieszczenia", "złamanie żebra po stronie lewej"],
+      "permanent_damage_percent": 15, "contributory_negligence_percent": 50,
+      "awards": [
+        {"type": "zadośćuczynienie", "amount_claimed": 25680, "amount_appropriate": 30000, "amount_paid_earlier": 4320, "amount_awarded": 10680, "is_monthly": false,
+         "evidence": "Sąd uznał że zadośćuczynienie za poniesioną przez powódkę krzywdę powinno wynieść 30.000 złotych"},
+        {"type": "odszkodowanie", "amount_claimed": 1812.82, "amount_appropriate": 2305.8, "amount_paid_earlier": 268.8, "amount_awarded": 884.1, "is_monthly": false,
+         "evidence": "odszkodowanie w kwocie 2.305,80 złotych pomniejszone o 50% i wypłaconą kwotę 268,80 złotych, daje zasądzone 884,10 złotych"}
+      ]
+    }
+  ],
+  "notes": "Passenger with a drunk, drugged driver (2021) who left the road. Przyczynienie 50% (the insurer argued 70–100%). 30 000 × 0.5 − 4 320 = 10 680. Odszkodowanie = family care (126 h × 18.30 zł)."
+}

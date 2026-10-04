@@ -1,0 +1,35 @@
+{
+  "case_number": "I ACa 1000/12",
+  "is_road_accident": true,
+  "claimants": [
+    {
+      "role": "poszkodowany",
+      "relation": null,
+      "sex": "M",
+      "age_at_accident": 19,
+      "victim_died": false,
+      "injuries": [
+        "niestabilne wieloodłamowe złamanie trzonu kręgu L3",
+        "kompresyjne złamanie trzonu kręgu L2",
+        "odłamanie wyrostka kolczystego L4",
+        "złamanie dwukostkowe goleni lewej z deficytem ruchu stawu skokowego",
+        "pourazowy zespół korzeniowy odcinka lędźwiowego",
+        "zaburzenia adaptacyjne, obniżony nastrój"
+      ],
+      "permanent_damage_percent": 56,
+      "contributory_negligence_percent": 25,
+      "awards": [
+        {
+          "type": "zadośćuczynienie",
+          "amount_claimed": 150000,
+          "amount_appropriate": 159600,
+          "amount_paid_earlier": 9600,
+          "amount_awarded": 119700,
+          "is_monthly": false,
+          "evidence": "Skoro bowiem 100% należnego zadośćuczynienia stanowi kwota 159.600 zł to pomniejszenie jej o 25% daje właśnie kwotę 119.700 zł."
+        }
+      ]
+    }
+  ],
+  "notes": "Motorcyclist, 19 years old. Uszczerbek: 49% physical + 7% psychological = 56%. The first instance found no przyczynienie and awarded 150 000 (159 600 in total with 9 600 paid). The appeal applied 25% przyczynienie: 159 600 × 0.75 = 119 700 (the court did not deduct the 9 600 again)."
+}

@@ -1,0 +1,46 @@
+{
+  "case_number": "I ACa 542/12",
+  "is_road_accident": true,
+  "claimants": [
+    {
+      "role": "poszkodowany",
+      "relation": null,
+      "sex": "M",
+      "age_at_accident": 42,
+      "victim_died": false,
+      "injuries": [
+        "złamanie trzonów kręgów L1 i L2",
+        "złamanie kości krzyżowej",
+        "wielofragmentowe dostawowe złamanie dalszego końca kości piszczelowej i strzałkowej prawej",
+        "złamanie żeber VIII i IX po stronie lewej",
+        "pęknięcie śledziony (splenektomia) z niedrożnością jelita cienkiego",
+        "przewlekłe zapalenie kości podudzia prawego z przetokami",
+        "złamanie korony zęba 21",
+        "zaburzenie stresowe pourazowe"
+      ],
+      "permanent_damage_percent": 119,
+      "contributory_negligence_percent": null,
+      "awards": [
+        {
+          "type": "zadośćuczynienie",
+          "amount_claimed": 110000,
+          "amount_appropriate": 200000,
+          "amount_paid_earlier": 90000,
+          "amount_awarded": 110000,
+          "is_monthly": false,
+          "evidence": "odpowiednią kwotą zadośćuczynienia ... jest kwota 200.000 zł (przy uwzględnianiu dotychczas wypłaconej przez ubezpieczyciela kwoty 90.000 zł i zasądzonej przez Sąd I instancji kwoty 50.000 zł)"
+        },
+        {
+          "type": "odszkodowanie",
+          "amount_claimed": 4601.95,
+          "amount_appropriate": null,
+          "amount_paid_earlier": 2164.78,
+          "amount_awarded": 1821.38,
+          "is_monthly": false,
+          "evidence": "zasądził od pozwanego na rzecz powoda kwotę 1821,38 złotych z tytułu uzupełniającego odszkodowania"
+        }
+      ]
+    }
+  ],
+  "notes": "A bus rear-ended his car, which was pushed into an oncoming lorry. Uszczerbek: 68% orthopaedic + 45% spleen/bowel + 1% tooth + up to 5% psychiatric = 119% (the court took all into account). Zadośćuczynienie: first instance 140 000 total (50 000 awarded); the appeal raised it to 200 000 total (+60 000, so 110 000 awarded in court). Odszkodowanie = medical costs; the separate care-cost payment of 4 848 is not part of the claim."
+}

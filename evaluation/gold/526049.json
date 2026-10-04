@@ -1,0 +1,16 @@
+{
+  "case_number": "I C 428/22",
+  "is_road_accident": true,
+  "claimants": [
+    {
+      "role": "poszkodowany", "relation": null, "sex": "M", "age_at_accident": null, "victim_died": false,
+      "injuries": ["złamanie obojczyka prawego leczone operacyjnie (dwie operacje)", "lęk przed wyprzedzaniem przez duże pojazdy"],
+      "permanent_damage_percent": 5, "contributory_negligence_percent": null,
+      "awards": [
+        {"type": "zadośćuczynienie", "amount_claimed": 10500, "amount_appropriate": 12500, "amount_paid_earlier": 7000, "amount_awarded": 5500, "is_monthly": false,
+         "evidence": "kwota 12.500 zł będzie ową adekwatną do rozmiaru krzywdy i cierpień powoda, a uwzględniając wypłaconą już powodowi sumę 7.000 zł"}
+      ]
+    }
+  ],
+  "notes": "Cyclist clipped by an overtaking lorry with a trailer (2019); claim against UFG (unidentified/uninsured vehicle). 12 500 total − 7 000 paid = 5 500. The court noted UFG had itself offered 12 500 before trial."
+}

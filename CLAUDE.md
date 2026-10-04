@@ -281,6 +281,35 @@ A searchable view of everything the parser read, inside the same static app (no 
 - Accuracy metrics were removed from the methodology page's section 2 at the owner's
   request (they remain in this file).
 
+## Success vs. loss (`outcome.py`, `model.fit_success`; 2026-10-04)
+
+- Outcome per first-instance judgment, read from the sentencja: full win, partial win
+  (award plus "w pozostałej części oddala" / "dalej idące"), or loss (claim fully
+  dismissed). None for second instance and for documents without a sentencja.
+  - The sentencja is split into points first. An award counts as costs only if "koszt"
+    appears within 120 characters after "na rzecz".
+  - Hand check: 8 of 8 correct per class.
+- 7,616 judgments: win 91.1% (full 15.0%, partial 76.1%), loss 8.9%. Against UFG, the loss
+  rate is 21.9%; against an insurer, 8.6%.
+- Logit of win vs. loss, HC1 errors, year bands (single years can have zero losses), average
+  marginal effects in pp. Pseudo-R² is 0.37. UFG −7.4 pp; an earlier insurer payment
+  +7.2 pp; district vs. regional court −2.3 pp. Factors stated by the court are +3–5 pp
+  (partly the court describing harm when it compensates it).
+- Phrases: a linear probability model on "loss" through `phrase_effects` (shared with the
+  amount keywords; effect in pp). Stems that restate the decision are dropped
+  (`_RESTATES_OUTCOME`). 6,445 of 9,279 features are significant: the text reflects the
+  outcome strongly.
+  - Losses go with limitation periods (art. 442¹), burden of proof, causation and art. 5 k.c.
+- In the app:
+  - the comparison page shows first-instance outcomes of similar cases
+    (`data/outcomes.json`, `logic.successRate`);
+  - the browser has an outcome filter and tag;
+  - the methodology page has section 8.
+- An intro ("Dlaczego powstała ta aplikacja", the owner's text, edited) is on the comparison
+  page and at the top of the methodology page.
+- Git: work happens on the branch `przebudowa-aplikacji`. The repo-local author is "Mateusz"
+  (same as the earlier commits). The footers link to GitHub.
+
 ## Bulk corpus (`orzeczenia dump`, `bulk.py`, started 2026-10-02)
 
 All SAOS judgments with civil claims go into `data/saos_civil.db` as zlib-compressed JSON

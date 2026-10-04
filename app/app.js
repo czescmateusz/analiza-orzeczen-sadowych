@@ -1,5 +1,5 @@
 // The app's UI: form, results, chart and quotes. Matching and statistics live in logic.js.
-import { fold, searchCategories, findSimilar, summarize, verdict, formatPLN, inPrices } from "./logic.js";
+import { fold, searchCategories, findSimilar, summarize, verdict, formatPLN, inPrices, successRate } from "./logic.js";
 
 const FACTORS_BY_ROLE = {
   p: ["trwale_skutki", "dlugie_leczenie", "bol_cierpienie", "psychika", "utrata_aktywnosci",
@@ -28,9 +28,10 @@ function h(tag, attrs = {}, ...children) {
 
 async function loadData() {
   const get = (p) => fetch(p).then((r) => { if (!r.ok) throw new Error(p); return r.json(); });
-  const [labels, cases, judgments] = await Promise.all([get("data/labels.json"), get("data/cases.json"), get("data/judgments.json")]);
+  const [labels, cases, judgments, outcomes] = await Promise.all([get("data/labels.json"), get("data/cases.json"),
+    get("data/judgments.json"), get("data/outcomes.json").catch(() => [])]);
   const inflation = labels.inflation || { base: null, factors: {} };
-  return { labels, cases, judgments, inflation, realCases: inPrices(cases, inflation.factors),
+  return { labels, cases, judgments, outcomes, inflation, realCases: inPrices(cases, inflation.factors),
            catLabel: Object.fromEntries(labels.categories.map((c) => [c.id, c.label])) };
 }
 
@@ -214,6 +215,26 @@ function renderResults() {
   out.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
+// How similar first-instance cases ended for the plaintiff.
+function successBlock(q) {
+  const r = successRate(data.outcomes, q);
+  if (!r) return null;
+  const pct = (x) => `${Math.round(x * 100)}%`;
+  const who = q.role === "p" ? "poszkodowanym" : "osobom bliskim zmarłego";
+  return h("div", { class: "success" },
+    h("h3", {}, "Jak kończyły się podobne sprawy w I instancji"),
+    h("div", { class: "stats" },
+      stat("Sąd zasądził coś więcej", pct(r.full + r.partial)),
+      stat("w tym: w całości / częściowo", `${pct(r.full)} / ${pct(r.partial)}`),
+      stat("Powództwo oddalone w całości", pct(r.loss))),
+    h("p", { class: "notes" },
+      `Na podstawie ${r.n} wyroków sądów I instancji z lat ${q.since}–${new Date().getFullYear()}, w których sąd orzekał o roszczeniach ` +
+      `przyznawanych ${who}${r.widened ? " (za mało spraw z tymi samymi obrażeniami – pokazano wszystkie sprawy tej grupy)" : q.role === "p" && q.categories.length ? " z podobnymi obrażeniami" : ""}. ` +
+      "Częściowa wygrana oznacza zwykle, że sąd przyznał mniej, niż żądał powód. Do sądu trafiają głównie sprawy, w których poszkodowani " +
+      "uznali ofertę za zbyt niską, a wynik nie uwzględnia kosztów procesu.", " ",
+      h("a", { href: "metodologia.html#sukces" }, "Więcej o skuteczności")));
+}
+
 // One comparison (verdict, statistics, chart, quotes, similar cases) for a single claim.
 function resultBlock(q) {
   const { cases: similar, notes } = findSimilar(q.real ? data.realCases : data.cases, q);
@@ -236,6 +257,8 @@ function resultBlock(q) {
     stat("Rozstęp międzykwartylowy (Q1–Q3)", `${formatPLN(stats.p25)} – ${formatPLN(stats.p75)}`),
     stat("Mediana wcześniejszych wypłat ubezpieczycieli", stats.paidN >= 5 ? formatPLN(stats.paidMedian) : "–")));
   parts.push(chart(similar, stats, q.offer));
+  const success = successBlock(q);
+  if (success) parts.push(success);
   const prices = q.real ? ` Kwoty z orzeczeń przeliczono na ceny z ${data.inflation.base} r. według wskaźników inflacji GUS.` : " Kwoty są nominalne (z dat orzeczeń).";
   const basis = `Porównanie opiera się na ${stats.n} najbardziej podobnych sprawach z lat ${q.since}–${new Date().getFullYear()}.${prices} Q1 (pierwszy kwartyl): w 25% spraw sąd uznał za odpowiednią niższą kwotę; Q3 (trzeci kwartyl): w 25% spraw – wyższą.`;
   const ratio = stats.ratioMedian ? ` W sprawach, w których znamy obie kwoty, sąd uznał za odpowiednią kwotę średnio (mediana) ${stats.ratioMedian.toFixed(1).replace(".", ",")} razy wyższą niż wcześniejsza wypłata ubezpieczyciela.` : "";

@@ -114,3 +114,16 @@ def test_in_prices_converts_totals_and_payments():
     out = call(ctx, 'inPrices(cases, {"2015": 1.5, "2026": 1})', cases=cases)
     assert (out[0]["t"], out[0]["pd"], out[0]["tn"]) == (15000, 3000, 10000)
     assert (out[1]["t"], out[1]["pd"]) == (10000, None)
+
+
+def test_success_rate_filters_role_year_and_injuries():
+    ctx = _logic()
+    rows = [["p", ["noga"], 2020, "f"]] * 10 + [["p", ["noga"], 2020, "l"]] * 10 + [["p", ["glowa"], 2020, "p"]] * 20 \
+        + [["b", [], 2020, "p"]] * 40 + [["p", ["noga"], 2010, "l"]] * 50
+    q = {"role": "p", "categories": ["noga"], "since": 2015}
+    r = call(ctx, "successRate(rows, q, 20)", rows=rows, q=q)
+    assert (r["n"], r["full"], r["loss"], r["widened"]) == (20, 0.5, 0.5, False)
+    q2 = {"role": "p", "categories": ["oko"], "since": 2015}      # too few with this category: all injured
+    r2 = call(ctx, "successRate(rows, q2, 20)", rows=rows, q2=q2)
+    assert (r2["n"], r2["widened"]) == (40, True)
+    assert call(ctx, 'successRate(rows, {"role": "b", "categories": [], "since": 2021}, 20)', rows=rows) is None

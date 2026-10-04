@@ -26,9 +26,11 @@ function h(tag, attrs = {}, ...children) {
 }
 const get = (p) => fetch(p).then((r) => { if (!r.ok) throw new Error(p); return r.json(); });
 
-// browse.json row: [id, sygnatura, court, date, instance, road, roles, maxTotal, cats, tooLow, nClaims, saosDate]
+// browse.json row: [id, sygnatura, court, date, instance, road, roles, maxTotal, cats, tooLow, nClaims, saosDate, outcome]
+// (outcome: first-instance result for the plaintiff – "full" / "partial" / "loss" / null)
 // (saosDate: SAOS's original date when it was an obvious typo that the export corrected)
-const R = { id: 0, sygn: 1, court: 2, date: 3, inst: 4, road: 5, roles: 6, total: 7, cats: 8, tooLow: 9, claims: 10, saosDate: 11 };
+const R = { id: 0, sygn: 1, court: 2, date: 3, inst: 4, road: 5, roles: 6, total: 7, cats: 8, tooLow: 9, claims: 10, saosDate: 11, outcome: 12 };
+const OUTCOME_LABELS = { full: "wygrana w całości", partial: "wygrana częściowo", loss: "przegrana" };
 
 // Rows without a value (no date / no amount read) always go last, whatever the direction.
 function sortRows(list) {
@@ -72,7 +74,7 @@ async function parserShard(id) {
 async function applyFilters() {
   const q = $("#q").value.trim();
   const sygn = fold($("#sygn").value.trim());
-  const role = $("#role").value, cat = $("#cat").value, road = $("#road").value;
+  const role = $("#role").value, cat = $("#cat").value, road = $("#road").value, result = $("#outcome").value;
   const from = Number($("#from").value) || 0, to = Number($("#to").value) || 9999;
   const tooLow = $("#toolow").checked, amount = $("#amount").checked;
   let allowed = null;
@@ -96,6 +98,7 @@ async function applyFilters() {
     if (role && !r[R.roles].includes(role)) return;
     if (cat && !r[R.cats].includes(cat)) return;
     if (road !== "" && String(r[R.road]) !== road) return;
+    if (result === "win" ? !["full", "partial"].includes(r[R.outcome]) : result && r[R.outcome] !== result) return;
     if (tooLow && !r[R.tooLow]) return;
     if (amount && r[R.total] == null) return;
     if (sygn && !fold(`${r[R.sygn]} ${r[R.court]}`).includes(sygn)) return;
@@ -119,6 +122,7 @@ function renderList() {
         r[R.roles].includes("b") ? "osoba bliska" : null,
         ...r[R.cats].map((c) => catLabel[c]),
         r[R.tooLow] ? "„wypłata zaniżona”" : null,
+        OUTCOME_LABELS[r[R.outcome]] || null,
         r[R.inst] === 2 ? "II instancja" : null,
       ].filter(Boolean);
       return h("tr", { tabindex: "0", onclick: () => openDetail(r[R.id]), onkeydown: (e) => { if (e.key === "Enter") openDetail(r[R.id]); } },
@@ -183,6 +187,7 @@ async function openDetail(id) {
         h("li", {}, r[R.road] ? "Uznane za sprawę z wypadku drogowego ze szkodą na osobie." : "Odrzucone: parser uznał, że to nie jest sprawa z wypadku drogowego ze szkodą na osobie."),
         r[R.cats].length ? h("li", {}, `Kategorie obrażeń: ${r[R.cats].map((c) => catLabel[c]).join(", ")}.`) : null,
         h("li", {}, `Odczytane roszczenia: ${r[R.claims]}.`),
+        r[R.outcome] ? h("li", {}, `Wynik sprawy dla powoda (odczytany z sentencji): ${OUTCOME_LABELS[r[R.outcome]]}.`) : null,
         h("li", { class: "notes" }, `Ślad techniczny: ${d.analysis}`))),
     d.claims.length ? h("h3", {}, "Odczytane kwoty i zdania, z których pochodzą") : h("p", {}, "Parser nie odczytał żadnych roszczeń."),
     h("p", { class: "notes" }, "Zaznaczona liczba w zdaniu to kwota, którą parser stamtąd odczytał."),
@@ -206,7 +211,7 @@ function closeDetail() {
 // Filters live in the URL fragment (never sent to a server), so a search can be bookmarked or shared.
 function syncHash() {
   const p = new URLSearchParams();
-  for (const id of ["q", "sygn", "role", "cat", "from", "to", "road"]) if ($(`#${id}`).value) p.set(id, $(`#${id}`).value);
+  for (const id of ["q", "sygn", "role", "cat", "from", "to", "road", "outcome"]) if ($(`#${id}`).value) p.set(id, $(`#${id}`).value);
   for (const id of ["toolow", "amount"]) if ($(`#${id}`).checked) p.set(id, "1");
   if (sort.key !== "date" || sort.dir !== "desc") p.set("sort", `${sort.key}-${sort.dir}`);
   history.replaceState(null, "", p.toString() ? `#${p}` : location.pathname);
@@ -214,7 +219,7 @@ function syncHash() {
 
 function readHash() {
   const p = new URLSearchParams(location.hash.slice(1));
-  for (const id of ["q", "sygn", "role", "cat", "from", "to", "road"]) if (p.has(id)) $(`#${id}`).value = p.get(id);
+  for (const id of ["q", "sygn", "role", "cat", "from", "to", "road", "outcome"]) if (p.has(id)) $(`#${id}`).value = p.get(id);
   for (const id of ["toolow", "amount"]) $(`#${id}`).checked = p.get(id) === "1";
   const [key, dir] = (p.get("sort") || "").split("-");
   if (["date", "total"].includes(key) && ["asc", "desc"].includes(dir)) sort = { key, dir };

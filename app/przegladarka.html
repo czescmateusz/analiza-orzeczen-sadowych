@@ -35,6 +35,10 @@
       <label class="field"><span>Obrażenia</span><select id="cat"><option value="">dowolne</option></select></label>
       <label class="field"><span>Rok od</span><input id="from" type="number" min="1990" max="2030" inputmode="numeric"></label>
       <label class="field"><span>Rok do</span><input id="to" type="number" min="1990" max="2030" inputmode="numeric"></label>
+      <label class="field"><span>Wynik sprawy (I instancja)</span>
+        <select id="outcome"><option value="">wszystkie</option><option value="win">wygrana (choćby częściowo)</option>
+          <option value="full">wygrana w całości</option><option value="partial">wygrana częściowo</option>
+          <option value="loss">przegrana (powództwo oddalone)</option></select></label>
       <label class="field"><span>Decyzja parsera</span>
         <select id="road"><option value="">wszystkie</option><option value="1">wypadek drogowy</option><option value="0">odrzucone (nie wypadek drogowy)</option></select></label>
       <label class="check"><input id="toolow" type="checkbox"> tylko z oceną sądu „wypłata zaniżona”</label>

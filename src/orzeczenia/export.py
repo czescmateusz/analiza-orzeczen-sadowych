@@ -21,6 +21,7 @@ from pathlib import Path
 from .categories import CATEGORIES, injury_categories
 from .dates import fix_date
 from .inflation import BASE_YEAR, SOURCES, factors as inflation_factors
+from .outcome import outcome as judgment_outcome
 from .reasons import REASONS_VERSION
 
 log = logging.getLogger(__name__)
@@ -259,7 +260,7 @@ def export_browser(conn: sqlite3.Connection, out: Path, parser_version: str = "p
         " ORDER BY j.judgment_date DESC",  # the app sorts again after date correction
         (parser_version,),
     )
-    browse, shards, texts = [], collections.defaultdict(dict), []
+    browse, shards, texts, outcomes = [], collections.defaultdict(dict), [], []
     for jid, case_number, court, saos_date, operative, reasoning, result, raw in rows:
         date, corrected = fix_date(saos_date, case_number, operative)
         x = json.loads(result)
@@ -280,10 +281,14 @@ def export_browser(conn: sqlite3.Connection, out: Path, parser_version: str = "p
         url = saos_url(jid)
         # browse row: id, sygnatura, court, date, instance, parser says road accident, roles,
         # max court total (zadośćuczynienie), injury categories, has a "too low" verdict, number of claims,
-        # and SAOS's original date when it was an obvious typo that we corrected
+        # SAOS's original date when it was an obvious typo that we corrected, and the first-instance
+        # outcome for the plaintiff ("full" / "partial" / "loss" / None)
+        result_code = judgment_outcome(operative, case_number)
         browse.append([jid, case_number, court, date, instance, int(x["is_road_accident"]), roles,
                        round(max(totals)) if totals else None, cats, int(any(p[1] == "too_low" for p in ps)),
-                       sum(len(c["awards"]) for c in claims), saos_date if corrected else None])
+                       sum(len(c["awards"]) for c in claims), saos_date if corrected else None, result_code])
+        if result_code and x["is_road_accident"] and date and date[:4].isdigit():
+            outcomes.append([roles, cats, int(date[:4]), result_code[0]])   # f / p / l
         shards[jid % BROWSER_SHARDS][str(jid)] = {"url": url, "analysis": x.get("analysis", ""), "claims": claims, "passages": ps}
         sentences = [s for c in claims for a in c["awards"] for v in a["src"].values() for s in v] + [p[3] for p in ps]
         texts.append(" ".join(dict.fromkeys(sentences)))
@@ -291,6 +296,8 @@ def export_browser(conn: sqlite3.Connection, out: Path, parser_version: str = "p
     for n in range(BROWSER_SHARDS):
         (out / "parser" / f"{n:03d}.json").write_text(json.dumps(shards.get(n, {}), ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     (out / "browse.json").write_text(json.dumps(browse, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    # First-instance outcomes for the comparison page: [roles, injury categories, year, f|p|l]
+    (out / "outcomes.json").write_text(json.dumps(outcomes, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 
     # Inverted index over the source sentences: folded 6-letter stem -> delta-encoded row numbers
     # in browse.json, sharded by the stem's first two letters.

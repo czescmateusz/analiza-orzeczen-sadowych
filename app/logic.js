@@ -172,3 +172,20 @@ export function inPrices(cases, factors) {
     return { ...c, tn: c.t, t: c.t * f, pd: c.pd != null ? c.pd * f : null };
   });
 }
+
+// ------------------------------------------------------------------ success rate
+
+// First-instance outcomes of similar judgments (data/outcomes.json rows: [roles, cats, year, f|p|l]):
+// same role, from `since`, and (for an injured person) sharing an injury category; if fewer than
+// `min` judgments match the categories, all judgments of the role are used (`widened`).
+export function successRate(outcomes, q, min = 30) {
+  const base = outcomes.filter(([roles, , year]) => roles.includes(q.role) && year >= q.since);
+  let rows = base, widened = false;
+  if (q.role === "p" && q.categories.length) {
+    const same = base.filter(([, cats]) => cats.some((c) => q.categories.includes(c)));
+    if (same.length >= min) rows = same; else widened = true;
+  }
+  if (rows.length < min) return null;
+  const count = (code) => rows.filter((r) => r[3] === code).length / rows.length;
+  return { n: rows.length, full: count("f"), partial: count("p"), loss: count("l"), widened };
+}

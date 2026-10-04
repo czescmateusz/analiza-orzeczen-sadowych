@@ -172,31 +172,93 @@ function ticks(lo, hi, X) {
   return kept.sort((a, b) => a - b);
 }
 
-function forest(container, items, { label, extra, groups = true }) {
-  // Domain always includes "no effect" (ratio 1), on a log scale so −50% and +100% sit equally far from 0.
-  const lo = Math.max(0.2, Math.min(0.95, ...items.map((d) => 1 + d.lo)) * 0.95);
-  const hi = Math.min(5, Math.max(1.05, ...items.map((d) => 1 + d.hi)) * 1.05);
-  const X = (ratio) => ((Math.log(Math.min(Math.max(ratio, lo), hi)) - Math.log(lo)) / (Math.log(hi) - Math.log(lo))) * 100;
-  const color = (d) => (d.p >= 0.05 ? "var(--c-ns)" : d.effect > 0 ? "var(--c-up)" : "var(--c-down)");
+const ppText = (x, digits = 1) => `${x > 0 ? "+" : x < 0 ? "−" : ""}${Math.abs(x * 100).toFixed(digits).replace(".", ",")} pp`;
+
+// Forest plot of effects with 95% CIs. scale "ratio": effects are relative changes (exp(b) − 1),
+// drawn on a log scale; scale "pp": effects are differences in probability, drawn linearly.
+// `badUp`: a positive effect is unfavourable (e.g. more frequent in lost cases), so colours swap.
+function forest(container, items, { label, extra, groups = true, scale = "ratio", badUp = false }) {
+  let pos, zero, tickVals, fmt, fmtTick = null;
+  if (scale === "pp") {
+    const lo = Math.min(-0.02, ...items.map((d) => d.lo)) * 1.1, hi = Math.max(0.02, ...items.map((d) => d.hi)) * 1.1;
+    pos = (v) => ((Math.min(Math.max(v, lo), hi) - lo) / (hi - lo)) * 100;
+    zero = 0; fmt = (v) => ppText(v, 1);
+    // "Nice" steps (1, 2, 5, 10, 20 pp …) giving at most ~4 intervals; 0 is always a tick.
+    const step = [0.01, 0.02, 0.05, 0.1, 0.2, 0.5].find((st) => (hi - lo) / st <= 4) || 0.5;
+    tickVals = [];
+    for (let t = Math.ceil(lo / step) * step; t <= hi + 1e-9; t += step) tickVals.push(Math.round(t * 1000) / 1000);
+    const tickFmt = (v) => `${v > 0 ? "+" : v < 0 ? "−" : ""}${Math.round(Math.abs(v) * 100)} pp`;
+    fmtTick = tickFmt;
+  } else {
+    // Domain always includes "no effect" (ratio 1), on a log scale so −50% and +100% sit equally far from 0.
+    const lo = Math.max(0.2, Math.min(0.95, ...items.map((d) => 1 + d.lo)) * 0.95);
+    const hi = Math.min(5, Math.max(1.05, ...items.map((d) => 1 + d.hi)) * 1.05);
+    const X = (ratio) => ((Math.log(Math.min(Math.max(ratio, lo), hi)) - Math.log(lo)) / (Math.log(hi) - Math.log(lo))) * 100;
+    pos = (effect) => X(1 + effect); zero = 0; fmt = (v) => pct(v);
+    tickVals = ticks(lo, hi, X).map((t) => t - 1);
+  }
+  const color = (d) => (d.p >= 0.05 ? "var(--c-ns)" : (d.effect > 0) !== badUp ? "var(--c-up)" : "var(--c-down)");
   const axis = h("div", { class: "forest-row forest-axis" }, h("div", {}),
-    h("div", { class: "forest-plot" }, ticks(lo, hi, X).map((t) =>
-      h("span", { class: "tick", style: `left:${X(t)}%` }, t === 1 ? "0" : pct(t - 1)))), h("div", {}));
+    h("div", { class: "forest-plot" }, tickVals.map((t) =>
+      h("span", { class: "tick", style: `left:${pos(t)}%` }, Math.abs(t) < 1e-9 ? "0" : (fmtTick || fmt)(t)))), h("div", {}));
   const rows = [axis];
   let group = null;
   for (const d of items) {
     if (groups && d.group !== group) { group = d.group; rows.push(h("div", { class: "forest-group" }, group)); }
     const svg = s("svg", { viewBox: "0 0 100 20", preserveAspectRatio: "none", "aria-hidden": "true" });
-    svg.append(s("line", { x1: X(1), x2: X(1), y1: 0, y2: 20, stroke: "var(--muted)", "stroke-width": 1, "vector-effect": "non-scaling-stroke" }));
-    svg.append(s("line", { x1: X(1 + d.lo), x2: X(1 + d.hi), y1: 10, y2: 10, stroke: color(d), "stroke-width": 2, "vector-effect": "non-scaling-stroke", "stroke-linecap": "round" }));
-    const dot = h("span", { class: "forest-dot", style: `left:${X(1 + d.effect)}%;background:${color(d)}` });
+    svg.append(s("line", { x1: pos(zero), x2: pos(zero), y1: 0, y2: 20, stroke: "var(--muted)", "stroke-width": 1, "vector-effect": "non-scaling-stroke" }));
+    svg.append(s("line", { x1: pos(d.lo), x2: pos(d.hi), y1: 10, y2: 10, stroke: color(d), "stroke-width": 2, "vector-effect": "non-scaling-stroke", "stroke-linecap": "round" }));
+    const dot = h("span", { class: "forest-dot", style: `left:${pos(d.effect)}%;background:${color(d)}` });
     const row = h("div", { class: "forest-row" },
       h("div", { class: "forest-label" }, label(d)),
       h("div", { class: "forest-plot" }, svg, dot),
-      h("div", { class: "forest-value" }, pct(d.effect)));
-    hoverable(row, () => [`${pct(d.effect)} – ${label(d)}`, `95% przedział ufności: ${pct(d.lo)} do ${pct(d.hi)}`, `p = ${pval(d.p)}`, extra(d)].filter(Boolean));
+      h("div", { class: "forest-value" }, fmt(d.effect)));
+    hoverable(row, () => [`${fmt(d.effect)} – ${label(d)}`, `95% przedział ufności: ${fmt(d.lo)} do ${fmt(d.hi)}`, `p = ${pval(d.p)}`, extra(d)].filter(Boolean));
     rows.push(row);
   }
   container.replaceChildren(h("div", { class: "forest" }, rows));
+}
+
+// ------------------------------------------------------------------ success vs. loss
+function success(model) {
+  const sx = model.success;
+  if (!sx) { $("#sukces").hidden = true; return; }
+  const p0 = (x) => `${Math.round(x * 100)}%`;
+  const o = sx.overall;
+  $("#success-tiles").replaceChildren(h("div", { class: "stats" },
+    h("div", { class: "stat" }, h("div", { class: "label" }, "Wygrana (choćby częściowa)"), h("div", { class: "value" }, p0(o.full + o.partial))),
+    h("div", { class: "stat" }, h("div", { class: "label" }, "w tym w całości / częściowo"), h("div", { class: "value" }, `${p0(o.full)} / ${p0(o.partial)}`)),
+    h("div", { class: "stat" }, h("div", { class: "label" }, "Powództwo oddalone w całości"), h("div", { class: "value" }, p0(o.loss)))));
+  $("#success-n").textContent = num(o.n);
+  const rows = sx.by_group.map((g) => h("tr", {}, h("td", {}, g.label), h("td", { class: "num" }, num(g.n)),
+    h("td", { class: "num" }, p0(g.full + g.partial)), h("td", { class: "num" }, p0(g.full)), h("td", { class: "num" }, p0(g.partial)),
+    h("td", { class: "num" }, p0(g.loss))));
+  const yrows = sx.by_year.map((g) => h("tr", {}, h("td", {}, String(g.year)), h("td", { class: "num" }, num(g.n)),
+    h("td", { class: "num" }, p0(g.full + g.partial)), h("td", { class: "num" }, p0(g.full)), h("td", { class: "num" }, p0(g.partial)),
+    h("td", { class: "num" }, p0(g.loss))));
+  const head = (first) => h("thead", {}, h("tr", {}, [first, "Wyroków", "Wygrana", "w całości", "częściowo", "Przegrana"].map((t, i) =>
+    h("th", { class: i ? "num" : null }, t))));
+  $("#success-groups").replaceChildren(h("table", {}, head("Grupa"), h("tbody", {}, rows)));
+  $("#success-years").replaceChildren(h("table", {}, head("Rok"), h("tbody", {}, yrows)));
+  const m = sx.model;
+  $("#success-model-summary").textContent =
+    `${num(m.n)} wyroków I instancji; wygrana w ${p0(m.win_rate)} z nich; pseudo-R² McFaddena = ${m.pseudo_r2.toFixed(2).replace(".", ",")}. ` +
+    "Wynik dla każdej cechy to średnia zmiana prawdopodobieństwa wygranej w punktach procentowych (pp), przy pozostałych cechach bez zmian.";
+  forest($("#success-model"), m.coefs.filter((c) => !c.group.startsWith("Lata")),
+    { scale: "pp", label: (d) => d.label, extra: (d) => `${num(d.n)} wyroków z tą cechą` });
+  const NAMES = { 1: "pojedynczych słów", 2: "fraz 2-wyrazowych", 3: "fraz 3-wyrazowych", 4: "fraz 4-wyrazowych" };
+  // Effects are on the probability of losing: positive (more losses) is the unfavourable direction.
+  const opts = { groups: false, scale: "pp", badUp: true, label: (d) => d.phrase,
+                 extra: (d) => `występuje w ${Math.round(d.share * 100)}% wyroków; q (FDR) = ${pval(d.q)}` };
+  const show = (n) => {
+    const part = sx.phrases.by_n[n];
+    $("#success-phrases-summary").textContent = `Poniżej po 12 ${NAMES[n]} najsilniej związanych z przegraną i z wygraną.`;
+    forest($("#success-loss"), part.loss.slice(0, 12), opts);
+    forest($("#success-win"), part.win.slice(0, 12), opts);
+  };
+  for (const r of document.querySelectorAll("input[name=sngram]")) r.addEventListener("change", () => show(r.value));
+  show("1");
+  $("#success-phrases-tested").textContent = `${num(sx.phrases.tested)} cech, z czego ${num(sx.phrases.significant)} istotnych`;
 }
 
 function models(model) {
@@ -258,6 +320,7 @@ async function main() {
   for (const r of document.querySelectorAll("input[name=prices]")) r.addEventListener("change", () => trend(model, inflation, r.value === "real"));
   models(model);
   keywords(model);
+  success(model);
   $("#versions").textContent = `parser ${model.versions.parser}, fragmenty uzasadnień ${model.versions.reasons}`;
 }
 

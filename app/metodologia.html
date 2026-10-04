@@ -32,8 +32,23 @@
         <li><a href="#trend">Trend kwot w czasie</a></li>
         <li><a href="#model">Model statystyczny: co podnosi, a co obniża kwoty</a></li>
         <li><a href="#slowa">Słowa i frazy w uzasadnieniach</a></li>
+        <li><a href="#sukces">Skuteczność pozwów: kiedy poszkodowani wygrywają z ubezpieczycielem</a></li>
       </ol>
     </nav>
+
+    <section id="cel">
+      <h2>Cel analizy</h2>
+      <p>Ofiary wypadków, w porównaniu z firmami ubezpieczeniowymi, mają bardzo ograniczoną wiedzę o tym, jakie kwoty
+        przyznaje się za doznane krzywdy. Jeszcze trudniej mają osoby, których nie stać na pomoc prawną. Stąd pomysł na
+        aplikację, która bada kwoty zasądzane przez sądy.</p>
+      <p>Nie jest to oczywiście pełny obraz kwot wypłacanych przez ubezpieczycieli – w wielu sprawach ich oferty mogą być
+        rozsądne i odpowiadać zarówno zmieniającym się kosztom życia, jak i kwotom zasądzanym przez sądy. Wykorzystana tu
+        próba jest niepełna i obciążona, bo do sądu trafiają głównie sprawy, w których poszkodowani uznali ofertę za zbyt
+        niską. Pokazuje jednak, że różnice między kwotami otrzymanymi od ubezpieczycieli a kwotami ostatecznie zasądzonymi
+        przez sądy są często znaczne. Od tych kwot trzeba oczywiście odjąć koszty pomocy prawnej (w części, której nie zwróci
+        przegrywający ubezpieczyciel).</p>
+      <p>Celem tej analizy i aplikacji jest pokazanie poszkodowanym, kiedy proces z ubezpieczycielem ma sens ekonomiczny.</p>
+    </section>
 
     <section id="proba">
       <h2>1. Analizowana próba</h2>
@@ -180,6 +195,58 @@
         <div><h3>Najsilniej obniżają kwotę</h3><div id="kw-down"></div></div>
       </div>
       <details><summary>Tabela: istotne słowa i frazy</summary><div id="kw-table" class="table-wrap"></div></details>
+    </section>
+    <section id="sukces">
+      <h2>8. Skuteczność pozwów: kiedy poszkodowani wygrywają z ubezpieczycielem</h2>
+      <p>Wynik każdej sprawy odczytano z sentencji wyroku sądu I instancji
+        (<span id="success-n"></span> wyroków w sprawach o wypadki drogowe ze szkodą na osobie):</p>
+      <ul>
+        <li><strong>wygrana w całości</strong> – sąd zasądził świadczenie i niczego nie oddalił;</li>
+        <li><strong>wygrana częściowa</strong> – sąd zasądził świadczenie, a w pozostałej części powództwo oddalił (najczęściej
+          przyznał mniej, niż żądał powód);</li>
+        <li><strong>przegrana</strong> – sąd oddalił powództwo w całości.</li>
+      </ul>
+      <p>Pominięto wyroki II instancji (ich wynik zależy od tego, kto wniósł apelację) oraz dokumenty bez sentencji.</p>
+      <div id="success-tiles"></div>
+      <h3>Według rodzaju sprawy</h3>
+      <div id="success-groups" class="table-wrap"></div>
+      <details><summary>Tabela: skuteczność według roku wyroku</summary><div id="success-years" class="table-wrap"></div></details>
+
+      <h3>Model statystyczny: co zwiększa szansę wygranej</h3>
+      <p>Regresja logistyczna wygranej (zasądzenie czegokolwiek) wobec przegranej (oddalenie powództwa w całości), z odpornymi
+        błędami standardowymi i efektami lat orzeczenia. Wyniki podano jako średnie efekty krańcowe.</p>
+      <p id="success-model-summary" class="notes"></p>
+      <div id="success-model"></div>
+      <h3>Jak czytać te wyniki</h3>
+      <ul>
+        <li><strong>Pozwany Ubezpieczeniowy Fundusz Gwarancyjny</strong> (sprawca bez ważnego OC albo nieustalony) to wyraźnie
+          mniejsza szansa wygranej – spory dotyczą tu częściej samej odpowiedzialności, a nie tylko wysokości kwoty.</li>
+        <li><strong>Wcześniejsza wypłata ubezpieczyciela</strong> wiąże się z wyższą szansą wygranej: ubezpieczyciel uznał już
+          odpowiedzialność, a spór dotyczy tylko kwoty.</li>
+        <li><strong>Okoliczności wskazane przez sąd</strong> (ból, trwałe skutki, utrata aktywności) współwystępują z wygraną także
+          dlatego, że sąd opisuje krzywdę szerzej, gdy ją rekompensuje. To związek, a nie dowód przyczyny.</li>
+      </ul>
+
+      <h3>Słowa i frazy w przegranych i wygranych sprawach</h3>
+      <p>Ta sama metoda co w punkcie 7, ale dla wyniku sprawy: dla każdego słowa i frazy sprawdzono, o ile punktów procentowych
+        częstsza jest przegrana w wyrokach, w których sąd ich użył (przy kontroli rodzaju sprawy, sądu, pozwanego, okresu i
+        długości uzasadnienia; korekta FDR). Przetestowano <span id="success-phrases-tested"></span>. Pominięto słowa, które
+        tylko powtarzają rozstrzygnięcie (np. „nie zasługiwało na uwzględnienie”, „strona przegrywająca”, koszty procesu).
+        Istotnych jest bardzo dużo cech, bo uzasadnienie wyroku oddalającego wygląda zupełnie inaczej niż zasądzającego – tekst
+        silnie odzwierciedla wynik sprawy. Kolor pomarańczowy oznacza związek z przegraną, niebieski – z wygraną.</p>
+      <div class="segmented" role="radiogroup" aria-label="Długość frazy">
+        <label><input type="radio" name="sngram" value="1" checked> 1 słowo</label>
+        <label><input type="radio" name="sngram" value="2"> 2 słowa</label>
+        <label><input type="radio" name="sngram" value="3"> 3 słowa</label>
+        <label><input type="radio" name="sngram" value="4"> 4 słowa</label>
+      </div>
+      <p id="success-phrases-summary" class="notes"></p>
+      <div class="multiples">
+        <div><h3>Częstsze w przegranych</h3><div id="success-loss"></div></div>
+        <div><h3>Częstsze w wygranych</h3><div id="success-win"></div></div>
+      </div>
+      <p class="notes">W przegranych sprawach sądy częściej piszą o przedawnieniu roszczenia, ciężarze dowodu („powód nie
+        wykazał”), braku związku przyczynowego i zasadach współżycia społecznego – to najczęstsze przyczyny oddalenia pozwu.</p>
     </section>
   </main>
 

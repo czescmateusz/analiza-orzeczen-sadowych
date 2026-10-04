@@ -211,3 +211,8 @@ h2.block-title { font-size: 21px; margin: 32px 0 12px; padding-top: 16px; border
 .field-check { display: flex; gap: 8px; align-items: flex-start; margin-top: 36px; font-size: 15px; }
 .field-check input { margin-top: 4px; }
 @media (max-width: 560px) { .field-check { margin-top: 12px; } }
+
+.intro { margin: 0 0 24px; }
+.intro h2 { font-size: 20px; margin: 0 0 8px; }
+.intro p { margin: 0 0 10px; max-width: 72ch; }
+.success h3 { margin-top: 24px; }

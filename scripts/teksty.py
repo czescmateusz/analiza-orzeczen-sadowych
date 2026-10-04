@@ -1,10 +1,11 @@
 """Collect the app's user-facing Polish texts into a spreadsheet for proofreading, and apply corrections.
 
-    .venv/Scripts/python scripts/teksty.py export   # writes teksty/teksty_do_korekty.csv
+    .venv/Scripts/python scripts/teksty.py export   # writes teksty/teksty_do_korekty.xlsx
     .venv/Scripts/python scripts/teksty.py apply    # applies the "nowy_tekst" column to the source files
 
-The CSV (UTF-8 with BOM, ";"-separated, so Excel opens it with Polish characters) has one row per
-text: id, plik, wiersz, tekst, nowy_tekst, uwagi. Only rows with "nowy_tekst" filled in are applied.
+The spreadsheet has one row per text: id, plik, wiersz, tekst, nowy_tekst, uwagi. Only rows with
+"nowy_tekst" filled in are applied. (It used to be a CSV, but Excel's import split the texts at
+spaces; an .xlsx has no separators to get wrong.)
 Texts come from
 - the app's HTML pages (text between tags, and placeholder / title / aria-label / description attributes),
 - string literals in the app's JavaScript (messages, headings of results),
@@ -13,14 +14,14 @@ After `apply`, re-run `orzeczenia export` and `orzeczenia model` if a Python lab
 """
 from __future__ import annotations
 
-import csv
 import re
 import sys
 from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-CSV = ROOT / "teksty" / "teksty_do_korekty.csv"
+SHEET = ROOT / "teksty" / "teksty_do_korekty.xlsx"
+COLUMNS = ["id", "plik", "wiersz", "tekst", "nowy_tekst", "uwagi"]
 HTML_FILES = ["app/index.html", "app/przegladarka.html", "app/metodologia.html"]
 JS_FILES = ["app/app.js", "app/przegladarka.js", "app/metodologia.js", "app/logic.js"]
 PY_FILES = ["src/orzeczenia/categories.py", "src/orzeczenia/export.py", "src/orzeczenia/model.py"]
@@ -98,19 +99,42 @@ def collect() -> list[dict]:
 
 
 def export() -> None:
+    from openpyxl import Workbook
+    from openpyxl.styles import Alignment, Font, PatternFill
+
     rows = collect()
-    CSV.parent.mkdir(exist_ok=True)
-    with CSV.open("w", encoding="utf-8-sig", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=["id", "plik", "wiersz", "tekst", "nowy_tekst", "uwagi"], delimiter=";")
-        w.writeheader()
-        for r in rows:
-            w.writerow({**r, "nowy_tekst": ""})
-    print(f"{len(rows)} tekstów -> {CSV.relative_to(ROOT)}")
+    SHEET.parent.mkdir(exist_ok=True)
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "teksty"
+    ws.append(COLUMNS)
+    for r in rows:
+        ws.append([r["id"], r["plik"], r["wiersz"], r["tekst"], "", r["uwagi"]])
+    for cell in ws[1]:
+        cell.font = Font(bold=True)
+    for col, width in zip("ABCDEF", (8, 26, 8, 70, 70, 28)):
+        ws.column_dimensions[col].width = width
+    wrap = Alignment(wrap_text=True, vertical="top")
+    for row in ws.iter_rows(min_row=2):
+        for cell in row:
+            cell.alignment = wrap
+        row[4].fill = PatternFill("solid", fgColor="FFF8E1")   # the column to fill in
+    ws.freeze_panes = "A2"
+    wb.save(SHEET)
+    print(f"{len(rows)} tekstów -> {SHEET.relative_to(ROOT)}")
+
+
+def _read_sheet() -> list[dict]:
+    from openpyxl import load_workbook
+
+    ws = load_workbook(SHEET, read_only=True).active
+    it = ws.iter_rows(values_only=True)
+    header = [str(h) for h in next(it)]
+    return [{k: ("" if v is None else str(v)) for k, v in zip(header, row)} for row in it]
 
 
 def apply() -> None:
-    with CSV.open(encoding="utf-8-sig", newline="") as f:
-        rows = [r for r in csv.DictReader(f, delimiter=";") if r["nowy_tekst"].strip()]
+    rows = [r for r in _read_sheet() if r.get("nowy_tekst", "").strip()]
     changed, problems = 0, []
     for r in rows:
         path = ROOT / r["plik"]

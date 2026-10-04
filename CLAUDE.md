@@ -273,8 +273,8 @@ A searchable view of everything the parser read, inside the same static app (no 
   URL (`sort=total-desc`).
 - **Links** go to SAOS's readable page (`export.saos_url`); the record's `source.judgmentUrl`
   returns raw XML.
-- **Texts for proofreading**: `scripts/teksty.py export|apply` and
-  `teksty/teksty_do_korekty.csv` (344 texts from HTML, JS and the Python labels; see
+- **Texts for proofreading**: `scripts/teksty.py export|apply` and (now an .xlsx; Excel split the CSV at spaces)
+  `teksty/teksty_do_korekty.xlsx` (344 texts from HTML, JS and the Python labels; see
   `teksty/README.md`). `apply` refuses changes to `${…}` placeholders.
 - **Local server**: `scripts/serve.py` sends `Cache-Control: no-cache`; plain
   `http.server` let Chrome keep a stale `logic.js`.
@@ -307,6 +307,9 @@ A searchable view of everything the parser read, inside the same static app (no 
   - the methodology page has section 8.
 - An intro ("Dlaczego powstała ta aplikacja", the owner's text, edited) is on the comparison
   page and at the top of the methodology page.
+- Publishing: GitHub Pages through `.github/workflows/pages.yml`, which deploys `app/` on every push to `main`
+  that touches `app/` (one-time setup: Settings → Pages → Source: GitHub Actions).
+  Address: https://czescmateusz.github.io/analiza-orzeczen-sadowych/
 - Git: work happens on the branch `przebudowa-aplikacji`. The repo-local author is "Mateusz"
   (same as the earlier commits). The footers link to GitHub.
 

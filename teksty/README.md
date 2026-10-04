@@ -1,14 +1,14 @@
 # Korekta tekstów aplikacji
 
-Plik **`teksty_do_korekty.csv`** zawiera wszystkie teksty widoczne w aplikacji: nagłówki, opisy, podpowiedzi w polach,
+Plik **`teksty_do_korekty.xlsx`** zawiera wszystkie teksty widoczne w aplikacji: nagłówki, opisy, podpowiedzi w polach,
 komunikaty w wynikach, nazwy kategorii obrażeń i okoliczności.
 
 ## Jak poprawić tekst
 
-1. Otwórz `teksty_do_korekty.csv` w Excelu lub LibreOffice. Polskie znaki wyświetlą się poprawnie, a kolumny są
-   rozdzielone średnikami.
-2. W kolumnie **`nowy_tekst`** wpisz nowe brzmienie tylko przy tych tekstach, które chcesz zmienić. Pozostałe zostaw puste.
-3. Zapisz plik w tym samym formacie (CSV, rozdzielany średnikami, UTF-8).
+1. Otwórz `teksty_do_korekty.xlsx` w Excelu (zwykłe dwukrotne kliknięcie).
+2. W kolumnie **`nowy_tekst`** (podświetlonej na żółto) wpisz nowe brzmienie tylko przy tych tekstach, które chcesz
+   zmienić. Pozostałe zostaw puste.
+3. Zapisz plik jako arkusz Excela (.xlsx) i zamknij go.
 4. Daj znać, a poprawki zostaną wprowadzone poleceniem:
 
    ```

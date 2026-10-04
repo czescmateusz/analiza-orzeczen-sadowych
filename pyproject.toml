@@ -13,7 +13,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=8", "quickjs>=1.19"]          # quickjs runs the app's JavaScript in tests (no Node needed)
+dev = ["pytest>=8", "quickjs>=1.19", "openpyxl>=3.1"]          # quickjs runs the app's JavaScript in tests (no Node needed)
 analysis = ["numpy>=2", "pandas>=2.2", "scipy>=1.13", "statsmodels>=0.14"]   # orzeczenia model
 
 [project.scripts]

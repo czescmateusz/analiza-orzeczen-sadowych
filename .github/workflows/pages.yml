@@ -5,7 +5,7 @@ name: Publikacja aplikacji (GitHub Pages)
 on:
   push:
     branches: [main]
-    paths: ["app/**", ".github/workflows/pages.yml"]
+    paths: ["app/**", ".github/workflows/**"]
   workflow_dispatch:
 
 permissions:
